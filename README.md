@@ -12,3 +12,29 @@ Releasing a novel dataset taken in a Clearpath Robotics warehouse.
 
 
 - Create script to automate
+
+
+### Data directory structure
+```
+WarehouseSequences_
+|
+--- Warehouse_1                              # Configuration folder
+|       |
+|       ---- Seq_0                           # Sequece
+|       |      |
+|       |      +--- rgb                      # 0000.png - xxxx.png      
+|       |      +--- depth                    # 0000.png - xxxx.png
+|       |      +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       |      ---- raw                   
+|       |      |     ---- poses.txt 
+|       |      |     ---- imu.txt 
+
+|       |
+|       +--- Seq_1
+|
++-- Warehouse_1
+.
+.
++-- Warehouse_N
+
+```
