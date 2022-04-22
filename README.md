@@ -25,16 +25,13 @@ WarehouseSequences_
 |       |      +--- rgb                      # 0000.png - xxxx.png      
 |       |      +--- depth                    # 0000.png - xxxx.png
 |       |      +--- semantic_segmentation    # 0000.png - xxxx.png     
-|       |      ---- raw                   
-|       |      |     ---- poses.txt 
-|       |      |     ---- imu.txt 
-
+|       |      +--- poses.txt 
+|       |      +--- imu.txt 
 |       |
 |       +--- Seq_1
 |
-+-- Warehouse_1
 .
 .
-+-- Warehouse_N
+........+-- Seq_N
 
 ```
