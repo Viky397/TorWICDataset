@@ -16,22 +16,35 @@ Releasing a novel dataset taken in a Clearpath Robotics warehouse.
 
 ### Data directory structure
 ```
-WarehouseSequences_
-|----Default config
-|---- 1- Boxes Move                          # Sequece
-| ------------Seq 1
-|       |      |
-|       |      +--- rgb                      # 0000.png - xxxx.png      
-|       |      +--- depth                    # 0000.png - xxxx.png
-|       |      +--- semantic_segmentation    # 0000.png - xxxx.png     
-|       |      +--- poses.txt 
-|       |      +--- imu.txt 
-|........................
-|---------------Seq N
-|---- 
+WarehouseSequences
 |
-.
-.
-........+-- Seq_N
-
-```
+|----Default configuration
+|       +--- rgb                      # 0000.png - xxxx.png      
+|       +--- depth                    # 0000.png - xxxx.png
+|       +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       --- poses.txt 
+|       --- imu.txt 
+|
+|---- 1- Boxes Move  
+|
+|-------Sequence 1
+|       +--- rgb                      # 0000.png - xxxx.png      
+|       +--- depth                    # 0000.png - xxxx.png
+|       +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       --- poses.txt 
+|       --- imu.txt 
+|
+|-------Sequence N
+|
+|---- 2- Walls Move
+|
+|-------Sequence 1
+|       +--- rgb                      # 0000.png - xxxx.png      
+|       +--- depth                    # 0000.png - xxxx.png
+|       +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       --- poses.txt 
+|       --- imu.txt 
+|
+|........+-- Seq_N
+|
+|---- X: Configuration Change
