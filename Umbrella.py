@@ -11,7 +11,7 @@ import pypcd
 from sensor_msgs.msg import PointCloud2
 
 bag_in = rosbag.Bag('/home/veronica/Downloads/Tests/Test1/Test1-1/test1-1_orig.bag', 'r')   
-folder = "Test1-1/"
+folder = "Test1/Test1-1/"
 
 pose_time = []
 pose_msg = []
