@@ -39,7 +39,6 @@ WarehouseSequences
 ```
 ## Segmentation Mask Loopup table
 
-```
 | Semantic Class     | Colour | RGB     |
 |:----:      |    :----:   |          :----:|
 | Background      | Title       | Here's this   |
@@ -58,4 +57,3 @@ WarehouseSequences
 | Forklift, truck   | Text        | And more      |
 | Dynamic feature  | Text        | And more      |
 | Driveable ground   | Text        | And more      |
-```
