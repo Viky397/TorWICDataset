@@ -43,17 +43,17 @@ WarehouseSequences
 |:----      |    :----:   |          :----:|
 | Background      | black       | [0,0,0]   |
 | Ceiling   | white       | [255,255,255]     |
-| Ego vehicle   | baby blue        | And more      |
-| Wall, fench, pillar   | green       | And more      |
-| Satic feature   | hot pink        | And more      |
-| Rack, shelf   | dark purple       | And more      |
-| Goods material   | dark blue       | And more      |
-| Fixed machinery  | blue-green        | And more      |
-| Cart, pallet, jack   | baby pink        | And more      |
-| Pylon  |orange        | And more      |
-| Text   | yellow        | And more      |
-| Non-staic feature   | red        | And more      |
-| Person   | baby purple        | And more      |
-| Forklift, truck   | watermelon         | And more      |
-| Dynamic feature  | dark green       | And more      |
-| Driveable ground   | grey        | And more      |
+| Ego vehicle   | baby blue        | [0,191,255]      |
+| Wall, fench, pillar   | green       | [0,255,0]      |
+| Satic feature   | hot pink        | [255,0,102]      |
+| Rack, shelf   | dark purple       | [153,0,204]     |
+| Goods material   | dark blue       | [51, 51, 204]    |
+| Fixed machinery  | blue-green        | [0, 153, 153]     |
+| Cart, pallet, jack   | baby pink        | [255, 204, 255]    |
+| Pylon  |orange        |[255, 153, 0]      |
+| Text   | yellow        | [255, 255, 0]     |
+| Non-staic feature   | red        | [255, 0, 0]       |
+| Person   | baby purple        | [204, 102, 255]      |
+| Forklift, truck   | watermelon         | [255, 77, 77]      |
+| Dynamic feature  | dark green       | [0, 153, 51]     |
+| Driveable ground   | grey        | [191, 191, 191]      |
