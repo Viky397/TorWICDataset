@@ -3,15 +3,11 @@ import numpy as np
 import os
 import cv2
 from cv_bridge import CvBridge
-import sensor_msgs.point_cloud2 as pc2
-import rospy
-from sensor_msgs.msg import PointCloud2, LaserScan
 import laser_geometry.laser_geometry as lg
 import pypcd
-from sensor_msgs.msg import PointCloud2
 
-bag_in = rosbag.Bag('/home/veronica/Downloads/Tests/Test1/Test1-1/test1-1_orig.bag', 'r')   
-folder = "Test1/Test1-1/"
+bag_in = rosbag.Bag('/home/veronica/Downloads/Tests/Test1/Test1-5/test1-5_orig.bag', 'r')   
+folder = "Test1/Test1-5/"
 
 pose_time = []
 pose_msg = []
@@ -210,12 +206,7 @@ for i in range(len(depth_cam_info)):
     rgb_mem=None
     first_flag=True
 
-    rospy.init_node("extractingImages")
-    rate=rospy.Rate(1)
-    rospy.loginfo("Extracting Depth Images")
     extract_depth(filt_depth_msg[i], count)
-
-    rospy.loginfo("Extracting RGB Images")
     extract_rgb(filt_rgb_msg[i], count)
 
     id_val.append(count)
