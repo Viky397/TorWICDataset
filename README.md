@@ -1,18 +1,6 @@
 # ChangingWarehouseDataset
 Releasing a novel dataset taken in a Clearpath Robotics warehouse, located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing).
 
-# What to Add
-1) Remove the bags that have improper localization (plot poses after extracting txt file)
-- Bag 3-3 has broken localization
-3) Edit pdf to remove the ones we are not including
-4) Add more comments/description to pdf (Explain what baseline is and what changes are)
-5) Add finetuning images and description of what labels are and how to finetune (Detectron2)
-6) Use synchronization script, then generate rgb (0001.png), depth, txt (ID, time (s and nano-s), x, y, z, qx, qy, qz, qw) and txt of IMU (ID, time (s, ns), acc in xyz and rotation rate in xyz)
-7) need camera intrinsics .txt and sensor extrinsics (camera, imu) in a Meta Info txt file
-
-
-- Create script to automate
-
 
 ### Data directory structure
 ```
@@ -48,3 +36,24 @@ WarehouseSequences
 |........+-- Seq_N
 |
 |---- X: Configuration Change
+
+## Segmentation Mask Loopup table
+
+| Semantic Class     | Colour | RGB     |
+|:----:      |    :----:   |          :----:|
+| Background      | Title       | Here's this   |
+| Ceiling   | Text        | And more      |
+| Ego vehicle   | Text        | And more      |
+| Wall, fench, pillar   | Text        | And more      |
+| Satic feature   | Text        | And more      |
+| Rack, shelf   | Text        | And more      |
+| Goods material   | Text        | And more      |
+| Fixed machinery  | Text        | And more      |
+| Cart, pallet, jack   | Text        | And more      |
+| Pylon  | Text        | And more      |
+| Text   | Text        | And more      |
+| Non-staic feature   | Text        | And more      |
+| Person   | Text        | And more      |
+| Forklift, truck   | Text        | And more      |
+| Dynamic feature  | Text        | And more      |
+| Driveable ground   | Text        | And more      |
