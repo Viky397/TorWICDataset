@@ -40,20 +40,20 @@ WarehouseSequences
 ## Segmentation Mask Loopup table
 
 | Semantic Class     | Colour | RGB     |
-|:----:      |    :----:   |          :----:|
-| Background      | Title       | Here's this   |
-| Ceiling   | Text        | And more      |
-| Ego vehicle   | Text        | And more      |
-| Wall, fench, pillar   | Text        | And more      |
-| Satic feature   | Text        | And more      |
-| Rack, shelf   | Text        | And more      |
-| Goods material   | Text        | And more      |
-| Fixed machinery  | Text        | And more      |
-| Cart, pallet, jack   | Text        | And more      |
-| Pylon  | Text        | And more      |
-| Text   | Text        | And more      |
-| Non-staic feature   | Text        | And more      |
-| Person   | Text        | And more      |
-| Forklift, truck   | Text        | And more      |
-| Dynamic feature  | Text        | And more      |
-| Driveable ground   | Text        | And more      |
+|:----      |    :----:   |          :----:|
+| Background      | black       | Here's this   |
+| Ceiling   | white       | And more      |
+| Ego vehicle   | baby blue        | And more      |
+| Wall, fench, pillar   | green       | And more      |
+| Satic feature   | hot pink        | And more      |
+| Rack, shelf   | dark purple       | And more      |
+| Goods material   | dark blue       | And more      |
+| Fixed machinery  | blue-green        | And more      |
+| Cart, pallet, jack   | baby pink        | And more      |
+| Pylon  |orange        | And more      |
+| Text   | yellow        | And more      |
+| Non-staic feature   | red        | And more      |
+| Person   | baby purple        | And more      |
+| Forklift, truck   | watermelon         | And more      |
+| Dynamic feature  | dark green       | And more      |
+| Driveable ground   | grey        | And more      |
