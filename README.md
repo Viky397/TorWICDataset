@@ -41,8 +41,8 @@ WarehouseSequences
 
 | Semantic Class     | Colour | RGB     |
 |:----      |    :----:   |          :----:|
-| Background      | black       | Here's this   |
-| Ceiling   | white       | And more      |
+| Background      | black       | [0,0,0]   |
+| Ceiling   | white       | [255,255,255]     |
 | Ego vehicle   | baby blue        | And more      |
 | Wall, fench, pillar   | green       | And more      |
 | Satic feature   | hot pink        | And more      |
