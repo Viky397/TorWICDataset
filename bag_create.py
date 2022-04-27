@@ -14,8 +14,10 @@ from geometry_msgs.msg import TransformStamped
 import rospy
 import pypcd
 
-bag_write = rosbag.Bag('/home/veronica/Downloads/Test3/Test3-1/3-1.bag', 'w')
+folder = "Test1/Test1-1/"
+bag_name = "1-1.bag"
 
+bag_write = rosbag.Bag("/home/veronica/Downloads/Tests/" + folder + bag_name, 'w')
 ########## Add Poses #################################################################
 
 pose_sec = []
@@ -28,7 +30,7 @@ qy = []
 qz = []
 qw = []
 
-array_info = np.loadtxt("/home/veronica/Downloads/Test3/Test3-1/poses.txt", skiprows=0)
+array_info = np.loadtxt("/home/veronica/Downloads/Tests/" + folder + "poses.txt", skiprows=0)
 
 print("Append Pose info")
 num_lines = sum(1 for line in array_info)
@@ -150,7 +152,7 @@ twist_qx = []
 twist_qy = []
 twist_qz = []
 
-array_info = np.loadtxt("/home/veronica/Downloads/Test3/Test3-1/odom.txt", skiprows=0)
+array_info = np.loadtxt("/home/veronica/Downloads/Tests/" + folder + "odom.txt", skiprows=0)
 
 print("Append Odometry info")
 num_lines = sum(1 for line in array_info)
@@ -208,7 +210,7 @@ qx = []
 qy = []
 qz = []
 
-array_info = np.loadtxt("/home/veronica/Downloads/Test3/Test3-1/imu.txt", skiprows=0)
+array_info = np.loadtxt("/home/veronica/Downloads/Tests/" + folder + "imu.txt", skiprows=0)
 
 print("Append IMU info")
 num_lines = sum(1 for line in array_info)
@@ -259,7 +261,7 @@ def sort_nicely(l):
     """
     l.sort(key=alphanum_key)
 
-lidar_path = "/home/veronica/Downloads/Test3/Test3-1/LaserScans/"
+lidar_path = "/home/veronica/Downloads/Tests/" + folder + "LaserScans/"
 
 print("Append LiDAR info")
 
@@ -297,9 +299,9 @@ for pcd in tqdm(list_masks):
     count +=1
 
 ########################### ADD IMAGES ###############################################3
-rgb_path = "/home/veronica/Downloads/Test3/Test3-1/RGB/"
-depth_path = "/home/veronica/Downloads/Test3/Test3-1/Depth/"
-mask_path = "/home/veronica/Downloads/Test3/Test3-1/Segmentation/"
+rgb_path = "/home/veronica/Downloads/Tests/" + folder + "RGB/"
+depth_path = "/home/veronica/Downloads/Tests/" + folder + "Depth/"
+mask_path = "/home/veronica/Downloads/Tests/" + folder + "Segmentation/"
 
 # RGB
 list_masks = os.listdir(rgb_path)
