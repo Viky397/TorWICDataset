@@ -4,7 +4,7 @@ Releasing a novel dataset taken in a Clearpath Robotics warehouse, located [here
 ## Add Citation format here
 
 
-### Data directory structure
+## Data directory structure
 ```
 WarehouseSequences
 |
@@ -60,4 +60,12 @@ WarehouseSequences
 | Dynamic feature  | 14  |dark green       | [0, 153, 51]     |
 | Driveable ground   | 15  |grey        | [191, 191, 191]      |
 
-# Dataset FAQ
+## Dataset FAQ
+Q) Is the data synchronized? \\
+A) Yes. The data from the RealSense sensor is synchronized with information from the other sensors. \\
+
+Q) Where are the sensor intrinsics and extrinsics? \\
+A) This information is provided in the data Google Drive link in the text file. Sensor extrinsics are provided in the ROS bags under the tf\_static topic. This information is the same for all trajectories. \\
+
+Q) What is the unit of the depth values? \\
+A) The depth images from RealSense D435i are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. \\
