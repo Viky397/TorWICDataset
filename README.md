@@ -1,8 +1,23 @@
 # ChangingWarehouseDataset
 Releasing a novel dataset taken in a Clearpath Robotics warehouse, located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing).
 
-## Add Citation format here
+## Citing
 
+When using **POCD** or the dataset in your research, please cite the following publication:
+
+Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, in _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)] 
+
+```bibtex
+@INPROCEEDINGS{QianChatrathPOCD,
+  author={Qian, Jingxing, and Chatrath, Veronica, and Yang, Jun, and Servos, James, and Schoellig, Angela, and Waslander, Steven L.},
+  booktitle={2022 Robotics: Science and Systems (RSS)}, 
+  title={{POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes}}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={},
+  doi={}}
+```
 
 ## Data directory structure
 ```
