@@ -59,3 +59,5 @@ WarehouseSequences
 | Forklift, truck   |13  |watermelon         | [255, 77, 77]      |
 | Dynamic feature  | 14  |dark green       | [0, 153, 51]     |
 | Driveable ground   | 15  |grey        | [191, 191, 191]      |
+
+# Dataset FAQ
