@@ -54,6 +54,11 @@ WarehouseSequences
 |
 |---- X: Configuration Change
 ```
+
+## Robot
+
+![Otto Robot](Otto.png)
+
 ## Segmentation Mask Loopup table
 
 | Semantic Class     |  uint16 Class ID |   Colour | RGB     |
