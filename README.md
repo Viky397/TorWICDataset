@@ -27,18 +27,22 @@ WarehouseSequences
 |----Baseline configuration
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
-|       +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       +--- segmentation             # 0000.png - xxxx.png    
+|       +--- laser scans              # 0000.png - xxxx.png 
 |       --- poses.txt 
 |       --- imu.txt 
+|       --- odom.txt
 |
 |---- 1- Box Shifts and Rotations  
 |
 |-------Sequence 1-1
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
-|       +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       +--- segmentation             # 0000.png - xxxx.png   
+|       +--- laser scans              # 0000.png - xxxx.png
 |       --- poses.txt 
 |       --- imu.txt 
+|       --- odom.txt
 |
 |-------Sequence 1-X
 |
@@ -47,9 +51,11 @@ WarehouseSequences
 |-------Sequence 2-1
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
-|       +--- semantic_segmentation    # 0000.png - xxxx.png     
+|       +--- segmentation             # 0000.png - xxxx.png  
+|       +--- laser scans              # 0000.png - xxxx.png
 |       --- poses.txt 
 |       --- imu.txt 
+|       --- odom.txt
 |
 |-------Sequence 2-X
 |
