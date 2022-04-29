@@ -20,7 +20,7 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 ```
 
 ## Data directory structure
-The configuration changes can be seen in the ![PDF](https://github.com/Viky397/ChangingWarehouseDataset/blob/main/Clearpath%20Changing%20Warehouse%20Dataset.pdf).
+The configuration changes can be seen in the following ![PDF](https://github.com/Viky397/ChangingWarehouseDataset/blob/main/Clearpath%20Changing%20Warehouse%20Dataset.pdf).
 ```
 WarehouseSequences
 |
