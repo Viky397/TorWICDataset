@@ -57,7 +57,7 @@ WarehouseSequences
 
 ## Robot
 
-![Otto Robot](Otto.png)
+![Otto Robot](otto.png)
 
 ## Segmentation Mask Loopup table
 
