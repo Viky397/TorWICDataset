@@ -23,14 +23,14 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 ```
 WarehouseSequences
 |
-|----Default configuration
+|----Baseline configuration
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
 |       +--- semantic_segmentation    # 0000.png - xxxx.png     
 |       --- poses.txt 
 |       --- imu.txt 
 |
-|---- 1- Boxes Move  
+|---- 1- Box Shifts and Rotations  
 |
 |-------Sequence 1
 |       +--- rgb                      # 0000.png - xxxx.png      
@@ -41,7 +41,7 @@ WarehouseSequences
 |
 |-------Sequence N
 |
-|---- 2- Walls Move
+|---- 2- Removing Boxes
 |
 |-------Sequence 1
 |       +--- rgb                      # 0000.png - xxxx.png      
