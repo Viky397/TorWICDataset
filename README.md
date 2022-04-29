@@ -32,25 +32,25 @@ WarehouseSequences
 |
 |---- 1- Box Shifts and Rotations  
 |
-|-------Sequence 1
+|-------Sequence 1-1
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
 |       +--- semantic_segmentation    # 0000.png - xxxx.png     
 |       --- poses.txt 
 |       --- imu.txt 
 |
-|-------Sequence N
+|-------Sequence 1-X
 |
 |---- 2- Removing Boxes
 |
-|-------Sequence 1
+|-------Sequence 2-1
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
 |       +--- semantic_segmentation    # 0000.png - xxxx.png     
 |       --- poses.txt 
 |       --- imu.txt 
 |
-|........+-- Seq_N
+|-------Sequence 2-X
 |
 |---- X: Configuration Change
 ```
