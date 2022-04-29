@@ -20,6 +20,7 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 ```
 
 ## Data directory structure
+The configuration changes can be seen in the ![PDF](Clearpath Changing Warehouse Dataset.pdf).
 ```
 WarehouseSequences
 |
