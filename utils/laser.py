@@ -19,7 +19,7 @@ class Laserscan:
         # Pointcloud data
         self.pcd = pypcd.PointCloud.from_path(file)
 
-    def toROSTF(self):
+    def toROSMsg(self):
         pc_data = self.pcd.pc_data
         msg = LaserScan()
         msg.header.seq = self.id

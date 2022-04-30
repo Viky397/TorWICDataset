@@ -30,11 +30,10 @@ class IMU:
         self.wz = float(data[7])
 
     def toROSMsg(self):
-        msg = IMU()
+        msg = Imu()
         msg.header.seq = self.id
         msg.header.stamp = rospy.Time.from_sec(self.time)
         msg.header.frame_id = self.frame
-        msg.child_frame_id = self.child_frame
         msg.linear_acceleration.x = self.ax
         msg.linear_acceleration.y = self.ay
         msg.linear_acceleration.z = self.az

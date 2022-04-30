@@ -3,9 +3,9 @@ from tf2_msgs.msg import TFMessage
 from geometry_msgs.msg import TransformStamped
 from sensor_msgs.msg import CameraInfo
 
-def getStaticTFBaseToCameraOptical(time):
+def getStaticTFBaseToCameraOptical(id, time):
     tf_stamped = TransformStamped()
-    tf_stamped.header.seq = 0
+    tf_stamped.header.seq = id
     tf_stamped.header.stamp = rospy.Time.from_sec(time)
     tf_stamped.header.frame_id = "base_link"
     tf_stamped.child_frame_id = "realsense_front_camera_color_optical_frame"
@@ -18,9 +18,9 @@ def getStaticTFBaseToCameraOptical(time):
     tf_stamped.transform.rotation.w = 0.561
     return tf_stamped
 
-def getStaticTFBaseToIMU(time):
+def getStaticTFBaseToIMU(id, time):
     tf_stamped = TransformStamped()
-    tf_stamped.header.seq = 0
+    tf_stamped.header.seq = id
     tf_stamped.header.stamp = rospy.Time.from_sec(time)
     tf_stamped.header.frame_id = "base_link"
     tf_stamped.child_frame_id = "imu_link"
@@ -33,9 +33,9 @@ def getStaticTFBaseToIMU(time):
     tf_stamped.transform.rotation.w = 0.924
     return tf_stamped
 
-def getStaticTFBaseToLidar(time):
+def getStaticTFBaseToLidar(id, time):
     tf_stamped = TransformStamped()
-    tf_stamped.header.seq = 0
+    tf_stamped.header.seq = id
     tf_stamped.header.stamp = rospy.Time.from_sec(time)
     tf_stamped.header.frame_id = "base_link"
     tf_stamped.child_frame_id = "front_laser"
@@ -48,10 +48,10 @@ def getStaticTFBaseToLidar(time):
     tf_stamped.transform.rotation.w = 1.0
     return tf_stamped
 
-def getStaticTFMsg(time):
-    tf_cam = getStaticTFBaseToCameraOptical(time)
-    tf_imu = getStaticTFBaseToIMU(time)
-    tf_lidar = getStaticTFBaseToLidar(time)
+def getStaticTFMsg(id, time):
+    tf_cam = getStaticTFBaseToCameraOptical(id, time)
+    tf_imu = getStaticTFBaseToIMU(id, time)
+    tf_lidar = getStaticTFBaseToLidar(id, time)
 
     static_tf_msgs = TFMessage()
     static_tf_msgs.transforms.append(tf_cam)

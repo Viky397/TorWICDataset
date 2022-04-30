@@ -2,6 +2,7 @@ import cv2
 import rospy
 from cv_bridge import CvBridge
 from time_util import toSec
+from calibration import getCameraInfoMsg
 
 # Wrapper for RGB image
 class RGBImage:
@@ -9,18 +10,22 @@ class RGBImage:
         # Frame
         self.frame = "realsense_front_camera_color_optical_frame"
         # Topic
-        self.topic = "/front/realsense/color/image_raw"
+        self.topic = "/front/realsense/color/"
         # ID
         self.id = id
         # Timestamp
         self.time = time
         # Pointcloud data
-        self.image = cv2.imread(file, -1)
+        self.image = cv2.imread(file, -1) # bgr
+        self.image_rgb = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
 
-    def toROSTF(self):
+    def toROSMsg(self):
         bridge = CvBridge()
-        msg = bridge.cv2_to_imgmsg(self.image, 'passthrough')
+        msg = bridge.cv2_to_imgmsg(self.image_rgb, 'rgb8')
         msg.header.seq = self.id
         msg.header.stamp = rospy.Time.from_sec(self.time)
         msg.header.frame_id = self.frame
         return msg
+
+    def getCameraInfo(self):
+        return getCameraInfoMsg(self.id, self.time, self.frame)
