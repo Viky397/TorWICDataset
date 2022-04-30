@@ -16,11 +16,14 @@ class Laserscan:
         self.id = id
         # Timestamp
         self.time = time
-        # Pointcloud data
-        self.pcd = pypcd.PointCloud.from_path(file)
+        # Pointcloud paths
+        self.pcd_path = file
+
+    def getPCD(self):
+        return pypcd.PointCloud.from_path(self.pcd_path)
 
     def toROSMsg(self):
-        pc_data = self.pcd.pc_data
+        pc_data = self.getPCD().pc_data
         msg = LaserScan()
         msg.header.seq = self.id
         msg.header.stamp = rospy.Time.from_sec(self.time)

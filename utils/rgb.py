@@ -15,13 +15,22 @@ class RGBImage:
         self.id = id
         # Timestamp
         self.time = time
-        # Pointcloud data
-        self.image = cv2.imread(file, -1) # bgr
-        self.image_rgb = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
+        # Image file
+        self.image_path = file
+
+    def getImageBGR(self):
+        return cv2.imread(self.image_path, -1)
+
+    def getImageRGB(self):
+        return cv2.cvtColor(self.getImageBGR(), cv2.COLOR_BGR2RGB)
+    
+    def imshow(self):
+        cv2.imshow('Color Image', self.getImageBGR())
+        cv2.waitKey(0)
 
     def toROSMsg(self):
         bridge = CvBridge()
-        msg = bridge.cv2_to_imgmsg(self.image_rgb, 'rgb8')
+        msg = bridge.cv2_to_imgmsg(self.getImageRGB(), 'rgb8')
         msg.header.seq = self.id
         msg.header.stamp = rospy.Time.from_sec(self.time)
         msg.header.frame_id = self.frame

@@ -29,11 +29,21 @@ if __name__ == '__main__':
         data = DataLoader(sequences[i])
         datasets.append(data)
     
-    # Calculate the time gap between consecutive trajectories
+    # Calculate the time and index gap between consecutive trajectories
     if num_seq > 1:
+        total_poses = datasets[0].poses_size
+        total_odoms = datasets[0].odoms_size
+        total_imus = datasets[0].imus_size
+        total_lasers = datasets[0].lasers_size
+        total_images = datasets[0].images_size
         for i in range(1,num_seq):
             dt = datasets[i].start_time - datasets[i-1].end_time
-            datasets[i].minusTimeOffset(dt)
+            datasets[i].applyTimeAndIndexOffset(dt, total_poses, total_imus, total_odoms, total_lasers, total_images)
+            total_poses += datasets[i].poses_size
+            total_odoms += datasets[i].odoms_size
+            total_imus += datasets[i].imus_size
+            total_lasers += datasets[i].lasers_size
+            total_images += datasets[i].images_size
 
     # Write all data to an output bag
     traj_start_time = datasets[0].start_time

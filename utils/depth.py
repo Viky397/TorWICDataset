@@ -15,12 +15,19 @@ class DepthImage:
         self.id = id
         # Timestamp
         self.time = time
-        # Pointcloud data
-        self.image = cv2.imread(file, -1)
+        # Image file
+        self.image_path = file
+
+    def getImage(self):
+        return cv2.imread(self.image_path, -1)
+
+    def imshow(self):
+        cv2.imshow('Color Image', self.getImage())
+        cv2.waitKey(0)
 
     def toROSMsg(self):
         bridge = CvBridge()
-        msg = bridge.cv2_to_imgmsg(self.image, 'passthrough')
+        msg = bridge.cv2_to_imgmsg(self.getImage(), 'passthrough')
         msg.header.seq = self.id
         msg.header.stamp = rospy.Time.from_sec(self.time)
         msg.header.frame_id = self.frame

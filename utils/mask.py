@@ -16,15 +16,25 @@ class MaskImage:
         self.id = id
         # Timestamp
         self.time = time
-        # Segmentation image
-        self.image_idx = cv2.imread(file, -1)
-        self.image_rgb = mask_colors[self.image_idx]
-        # For visualization with cv2.imshow
-        self.image_bgr = cv2.cvtColor(self.image_rgb, cv2.COLOR_RGB2BGR)
+        # Image file
+        self.image_path = file
+
+    def getImageIdx(self):
+        return cv2.imread(self.image_path, -1)
+
+    def getImageRGB(self):
+        return mask_colors[self.getImageIdx()]
+
+    def getImageBGR(self):
+        return cv2.cvtColor(self.getImageRGB(), cv2.COLOR_RGB2BGR)
+    
+    def imshow(self):
+        cv2.imshow('Color Image', self.getImageBGR())
+        cv2.waitKey(0)
 
     def toROSMsg(self):
         bridge = CvBridge()
-        msg = bridge.cv2_to_imgmsg(self.image_rgb, 'rgb8')
+        msg = bridge.cv2_to_imgmsg(self.getImageRGB(), 'rgb8')
         msg.header.seq = self.id
         msg.header.stamp = rospy.Time.from_sec(self.time)
         msg.header.frame_id = self.frame

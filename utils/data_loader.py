@@ -139,21 +139,30 @@ class DataLoader:
             mask = MaskImage(i, mask_file_path, self.poses_time[i])
             self.images_masks.append(mask)
 
-    def minusTimeOffset(self, dt):
+    def applyTimeAndIndexOffset(self, dt, idx_pose, idx_imu, idx_odom, idx_laser, idx_image):
         # Apply a time offset to all data
         # Necessary to merge multiple trajectories
         for i in range(self.poses_size):
             self.poses[i].time -= dt
+            self.poses[i].id += idx_pose
         for i in range(self.odoms_size):
             self.odoms[i].time -= dt
+            self.odoms[i].id += idx_odom
         for i in range(self.imus_size):
             self.imus[i].time -= dt
+            self.imus[i].id += idx_imu
         for i in range(self.lasers_size):
             self.lasers[i].time -= dt
+            self.lasers[i].id += idx_laser
         for i in range(self.images_size):
             self.images_rgbs[i].time -= dt
+            self.images_rgbs[i].id += idx_image
             self.images_depths[i].time -= dt
+            self.images_depths[i].id += idx_image
             self.images_masks[i].time -= dt
+            self.images_masks[i].id += idx_image
+        self.start_time -= dt
+        self.end_time -= dt
 
 if __name__ == '__main__':
     if len(sys.argv) <= 1:
