@@ -28,7 +28,7 @@ WarehouseSequences
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
 |       +--- segmentation             # 0000.png - xxxx.png    
-|       +--- laser scans              # 0000.png - xxxx.png 
+|       +--- laser scans              # 0000.png - xxxx.pcd 
 |       --- poses.txt 
 |       --- imu.txt 
 |       --- odom.txt
@@ -39,7 +39,7 @@ WarehouseSequences
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
 |       +--- segmentation             # 0000.png - xxxx.png   
-|       +--- laser scans              # 0000.png - xxxx.png
+|       +--- laser scans              # 0000.png - xxxx.pcd
 |       --- poses.txt 
 |       --- imu.txt 
 |       --- odom.txt
@@ -52,7 +52,7 @@ WarehouseSequences
 |       +--- rgb                      # 0000.png - xxxx.png      
 |       +--- depth                    # 0000.png - xxxx.png
 |       +--- segmentation             # 0000.png - xxxx.png  
-|       +--- laser scans              # 0000.png - xxxx.png
+|       +--- laser scans              # 0000.png - xxxx.pcd
 |       --- poses.txt 
 |       --- imu.txt 
 |       --- odom.txt
