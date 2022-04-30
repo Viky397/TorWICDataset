@@ -1,7 +1,7 @@
 # ChangingWarehouseDataset
 
 ## Description
-This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, in _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). 
+This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). 
 
 This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
@@ -9,12 +9,12 @@ This dataset contains 18 trajectories that can be merged using the provided scri
 
 When using **POCD** or the dataset in your research, please cite the following publication:
 
-Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, in _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)] 
+Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, conditionally accepted to _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)] 
 
 ```bibtex
 @INPROCEEDINGS{QianChatrathPOCD,
   author={Qian, Jingxing and Chatrath, Veronica and Yang, Jun and Servos, James and Schoellig, Angela and Waslander, Steven L.},
-  booktitle={2022 Robotics: Science and Systems (RSS)}, 
+  booktitle={conditionally accepted to 2022 Robotics: Science and Systems (RSS)}, 
   title={{POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes}}, 
   year={2022},
   volume={},
@@ -109,11 +109,17 @@ The scripy relies on ```pypcd``` to proces the laser scans. If you are using Pyt
 | Ego Vehicle  | 15  |grey        | [191, 191, 191]      |
 
 ## Dataset FAQ
-Q) Is the data synchronized? \
-A) Yes. The data from the RealSense sensor is synchronized with information from the other sensors. 
+Q) Is the sensor data synchronized? \
+A) The sensors on the OTTO 100 platform are not synchronized with each other. For our dataset, we used the RealSense image timestamps as the reference, and take the measurements with the closest timestamp from the LiDAR and the poses. The provided odometry and IMU data is not sub-sampled. Please contact us if you need the unprocessed, raw data (as rosbags). 
 
-Q) Where are the sensor intrinsics and extrinsics? \
-A) This information is provided in the data Google Drive link in the text file. Sensor extrinsics are provided in the ROS bags under the tf\_static topic. This information is the same for all trajectories. 
+Q) How were the poses obtained? \
+A) The poses of the robot were obtained offline using a proprietary LiDAR-based SLAM solution. 
+
+Q) How were the segmentation masks obtained? \
+A) The provided semantic segmentation masks are not perfect. We trained a semantic segmentation model on thousands of human-labeled warehouse images, and ran inference on the RGB images to obtain the masks. Unfortunately, the training data is proprietary and cannot be released. However, we release a subset of this dataset so users can fine-tune their models. 
+
+Q) Where are the sensor intrinsics and extrinsics? How were they obtained?\
+A) This information is provided in the data Google Drive link in the text file. Sensor extrinsics are also provided in the ROS bags under the tf\_static topic. This information is the same for all trajectories. The RealSense camera was calibrated with the Intel's OEM calibration tool. Sensor extrinsics are factory calibrated.
 
 Q) What is the unit of the depth values? \
 A) The depth images from RealSense D435i are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. 
