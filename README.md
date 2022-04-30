@@ -73,7 +73,7 @@ WarehouseSequences
 | Background      | 0  |black       | [0,0,0]   |
 | Ceiling   |1  | white       | [255,255,255]     |
 | Ego vehicle   | 2  |baby blue        | [0,191,255]      |
-| Wall, fench, pillar   | 3  |bright green       | [0,255,0]      |
+| Wall, fence, pillar   | 3  |bright green       | [0,255,0]      |
 | Satic feature   | 4  |hot pink        | [255,0,102]      |
 | Rack, shelf   | 5  |purple       | [153,0,204]     |
 | Goods material   | 6  |dark blue       | [51, 51, 204]    |
