@@ -27,6 +27,8 @@ The novel dataset taken in the Clearpath Robotics warehouse is located [here](ht
 ## Data directory structure
 The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/ChangingWarehouseDataset/blob/main/Clearpath%20Changing%20Warehouse%20Dataset.pdf).
 
+Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
+
 ```
 WarehouseSequences
 |
