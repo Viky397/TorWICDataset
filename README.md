@@ -127,3 +127,6 @@ A) This information is provided in the data Google Drive link in the text file. 
 
 Q) What is the unit of the depth values? \
 A) The depth images from RealSense D435i are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. 
+
+# Acknowledgments
+This work was supported by the Vector Institute for Artificial Intelligence in Toronto and the NSERC Canadian Robotics Network (NCRN).
