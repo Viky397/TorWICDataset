@@ -1,7 +1,7 @@
 # ChangingWarehouseDataset
 
 ## Description
-This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, in _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). \
+This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, in _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). 
 
 This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
@@ -23,17 +23,9 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
   doi={}}
 ```
 
-## How to merge trajectories into ROS bags
-
-1) Clone this repository
-2) Ensure the Scenario folders that contain the dataset are in the repository folder
-3) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
-For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
-
-The scripy relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
-
 ## Data directory structure
 The configuration changes can be seen in the following ![PDF](https://github.com/Viky397/ChangingWarehouseDataset/blob/main/Clearpath%20Changing%20Warehouse%20Dataset.pdf).
+
 ```
 WarehouseSequences
 |
@@ -75,30 +67,42 @@ WarehouseSequences
 |---- X: Configuration Change
 ```
 
-## Robot
+## Robot and sensors
+The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
 ![Otto Robot](otto.png)
+![Table of sensors](sensor_table.png)
+
+
+## How to merge trajectories into ROS bags
+
+1) Clone this repository
+2) Ensure the Scenario folders that contain the dataset are in the repository folder
+3) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
+For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
+
+The scripy relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
 
 ## Segmentation Mask Loopup table
 
 | Semantic Class     |  uint16 Class ID |   Colour | RGB     |
 |:----      | :----:   |   :----:   |          :----:|
 | Background      | 0  |black       | [0,0,0]   |
-| Ceiling   |1  | white       | [255,255,255]     |
-| Ego vehicle   | 2  |baby blue        | [0,191,255]      |
-| Wall, fence, pillar   | 3  |bright green       | [0,255,0]      |
-| Satic feature   | 4  |hot pink        | [255,0,102]      |
-| Rack, shelf   | 5  |purple       | [153,0,204]     |
-| Goods material   | 6  |dark blue       | [51, 51, 204]    |
-| Fixed machinery  |7  | teal        | [0, 153, 153]     |
-| Cart, pallet, jack   |8  | baby pink        | [255, 204, 255]    |
-| Pylon  |9  |orange        |[255, 153, 0]      |
-| Text   | 10  |yellow        | [255, 255, 0]     |
-| Non-static feature   | 11  |bright red        | [255, 0, 0]       |
+| Driveable Ground   |1  | white       | [255,255,255]     |
+| Ceiling  | 2  |baby blue        | [0,191,255]      |
+| Wall/Fence/Pillar   | 3  |bright green       | [0,255,0]      |
+| Fixed Machinery | 4  |hot pink        | [255,0,102]      |
+| Rack/Shelf  | 5  |purple       | [153,0,204]     |
+| Text Region Feature   | 6  |dark blue       | [51, 51, 204]    |
+| Miscellaneous Static Feature  |7  | teal        | [0, 153, 153]     |
+| Goods Materials   |8  | baby pink        | [255, 204, 255]    |
+| Cart/Pallet Jack  |9  |orange        |[255, 153, 0]      |
+| Pylons   | 10  |yellow        | [255, 255, 0]     |
+| Miscellaneous Non-Static Feature   | 11  |bright red        | [255, 0, 0]       |
 | Person   | 12  |baby purple        | [204, 102, 255]      |
-| Forklift, truck   |13  |watermelon         | [255, 77, 77]      |
-| Dynamic feature  | 14  |dark green       | [0, 153, 51]     |
-| Driveable ground   | 15  |grey        | [191, 191, 191]      |
+| Forklift/Truck   |13  |watermelon         | [255, 77, 77]      |
+| Miscellaneous Dynamic Feature  | 14  |dark green       | [0, 153, 51]     |
+| Ego Vehicle  | 15  |grey        | [191, 191, 191]      |
 
 ## Dataset FAQ
 Q) Is the data synchronized? \
