@@ -178,12 +178,12 @@ if __name__ == '__main__':
     print(data.odoms[0].time,data.odoms[0].x)
     print(data.imus[0].time,data.imus[0].ax)
 
-    print(data.images_depths[0].image)
+    print(data.images_depths[0].getImage())
 
-    cv2.imshow('img',data.images_rgbs[0].image)
-    cv2.waitKey(0)
-    cv2.imshow('mask bgr',data.images_masks[0].image_bgr)
-    cv2.waitKey(0)
+    data.images_rgbs[0].imshow()
+    data.images_masks[0].imshow()
+    data.images_depths[0].imshow()
+
 
             
 
