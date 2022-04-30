@@ -1,12 +1,9 @@
 # ChangingWarehouseDataset
-Releasing a novel dataset taken in a Clearpath Robotics warehouse, located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing).
 
-## How to run
+## Description
+This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, in _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). \
 
-1) Clone this repository
-2) Ensure the Scenario folders that contain the dataset are in the repository folder
-3) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
-For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
+This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
 ## Citing
 
@@ -25,6 +22,15 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
   pages={},
   doi={}}
 ```
+
+## How to merge trajectories into ROS bags
+
+1) Clone this repository
+2) Ensure the Scenario folders that contain the dataset are in the repository folder
+3) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
+For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
+
+The scripy relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
 
 ## Data directory structure
 The configuration changes can be seen in the following ![PDF](https://github.com/Viky397/ChangingWarehouseDataset/blob/main/Clearpath%20Changing%20Warehouse%20Dataset.pdf).
