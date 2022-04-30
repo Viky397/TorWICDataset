@@ -1,6 +1,13 @@
 # ChangingWarehouseDataset
 Releasing a novel dataset taken in a Clearpath Robotics warehouse, located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing).
 
+## How to run
+
+1) Clone this repository
+2) Ensure the Scenario folders that contain the dataset are in the repository folder
+3) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
+For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
+
 ## Citing
 
 When using **POCD** or the dataset in your research, please cite the following publication:
