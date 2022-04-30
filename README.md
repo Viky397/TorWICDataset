@@ -1,7 +1,10 @@
 # ChangingWarehouseDataset
 
 ## Description
-This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility. 
+This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
+
+In the image below is an example of the robot revisiting the same spot (AprilTag) during the Warehouse 2_4_ 4 route. Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
+![comparison](compare.png).
 
 ## Citing
 
