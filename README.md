@@ -4,25 +4,7 @@
 This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
 In the image below is an example of the robot revisiting the same spot (AprilTag) during the Warehouse 2_4_ 4 route. Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
-![comparison](compare.png).
-
-## Citing
-
-When using **POCD** or the dataset in your research, please cite the following publication:
-
-Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, conditionally accepted to _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)] 
-
-```bibtex
-@INPROCEEDINGS{QianChatrathPOCD,
-  author={Qian, Jingxing and Chatrath, Veronica and Yang, Jun and Servos, James and Schoellig, Angela and Waslander, Steven L.},
-  booktitle={conditionally accepted to 2022 Robotics: Science and Systems (RSS)}, 
-  title={{POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes}}, 
-  year={2022},
-  volume={},
-  number={},
-  pages={},
-  doi={}}
-```
+![comparison](compare.png)
 
 ## Download dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
@@ -130,6 +112,24 @@ A) This information is provided in the data Google Drive link in the text file. 
 
 Q) What is the unit of the depth values? \
 A) The depth images from RealSense D435i are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. 
+
+## Citing
+
+When using **POCD** or the dataset in your research, please cite the following publication:
+
+Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, conditionally accepted to _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper](Link)] 
+
+```bibtex
+@INPROCEEDINGS{QianChatrathPOCD,
+  author={Qian, Jingxing and Chatrath, Veronica and Yang, Jun and Servos, James and Schoellig, Angela and Waslander, Steven L.},
+  booktitle={conditionally accepted to 2022 Robotics: Science and Systems (RSS)}, 
+  title={{POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes}}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={},
+  doi={}}
+```
 
 # Acknowledgments
 This work was supported by the Vector Institute for Artificial Intelligence in Toronto and the NSERC Canadian Robotics Network (NCRN). We would like to thank Clearpath Robotics for providing the facility and the robot platform that made this dataset possible. 
