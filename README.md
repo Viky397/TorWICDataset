@@ -61,7 +61,7 @@ The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://otto
 ![Otto Robot](otto.png)
 ![Table of sensors](sensor_table.png)
 
-The dataset provides 18 trajectories in 4 scenarios, including the baseline setup. Each trajectory contains the robot traversing through a static  configuration of the environment, starting and finishing at the fixed April-Tag. Users can stitch the trajectory together with the provided script to create routes with structural changes in the scene. A high level overview of the scenarios and trajectories is listed in the table below. 
+The dataset provides 18 trajectories in 4 scenarios, including the baseline setup. Each trajectory contains the robot traversing through a static  configuration of the environment, starting and finishing at the fixed April-Tag. Users can stitch the trajectories together with the provided script to create routes with structural changes in the scene. A high level overview of the scenarios and trajectories is listed in the table below. 
 
 ![trajs](trajs.png)
 
