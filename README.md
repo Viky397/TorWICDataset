@@ -6,6 +6,12 @@ This repository contains the released dataset discussed in **POCD: Probabilistic
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2 and Scenario_4-1). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](compare.png)
 
+## To Do (Under construction)
+- [x] Link to download dataset (April 27, 2022)
+- [x] Python script to merge trajectories (April 30, 2022)
+- [ ] Improve segmentation mask quality (TBD)
+- [ ] New dataset collection in a real-world warehouse setting (Summer 2022)
+
 ## Download dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
@@ -75,7 +81,7 @@ For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
 
 The script relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
 
-## Ground-truth Segmentation for Fine-tuning
+## Ground-truth segmentation for fine-tuning
 A proprietary model was trained to produce the semantic labels for the dataset. Unfortunately, the full training data cannot be released. However, we release a subset of this data such that users can fine-tune their models, if needed. Within the [main folder](https://drive.google.com/file/d/1ovm4ycVrQfpuseI2Kc8TofS-LI0Nly_I/view?usp=sharing), there are 79 folders with unique ID's. Within each folder, there are 3 sets of images, each within its own sub-folder. Each image folder contains an image of the individual semantic mask, the source RGB image, the combined semantic mask image, the combined semantic indexed image, and an annotation ```.json file```. For training purposes, the combined indexed image should be used ```combined_indexedImage.png```. Each pixel holds the class ID of the semantic class corresponding to the table below. The provided ROSbags of the dataset contain colourized masks that correspond to the Class ID column in the table below. 
 
 | Semantic Class     |  uint16 Class ID |   Colour | RGB     |
