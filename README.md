@@ -83,19 +83,19 @@ A proprietary model was trained to produce the semantic labels for the dataset. 
 | Background      | 0  |black       | [0,0,0]   |
 | Driveable Ground   |1  | white       | [255,255,255]     |
 | Ceiling  | 2  |baby blue        | [0,191,255]      |
-| Wall/Fence/Pillar   | 3  |bright green       | [0,255,0]      |
-| Fixed Machinery | 4  |hot pink        | [255,0,102]      |
-| Rack/Shelf  | 5  |purple       | [153,0,204]     |
-| Text Region Feature   | 6  |dark blue       | [51, 51, 204]    |
-| Miscellaneous Static Feature  |7  | teal        | [0, 153, 153]     |
-| Goods Materials   |8  | baby pink        | [255, 204, 255]    |
+| Ego Vehicle    | 3  |bright green       | [0,255,0]      |
+| Wall/Fence/Pillar | 4  |hot pink        | [255,0,102]      |
+| Miscellaneous Static Feature   | 5  |purple       | [153,0,204]     |
+| Rack/Shelf   | 6  |dark blue       | [51, 51, 204]    |
+| Goods Materials |7  | teal        | [0, 153, 153]     |
+| Fixed Machinery   |8  | baby pink        | [255, 204, 255]    |
 | Cart/Pallet Jack  |9  |orange        |[255, 153, 0]      |
 | Pylons   | 10  |yellow        | [255, 255, 0]     |
-| Miscellaneous Non-Static Feature   | 11  |bright red        | [255, 0, 0]       |
-| Person   | 12  |baby purple        | [204, 102, 255]      |
-| Forklift/Truck   |13  |watermelon         | [255, 77, 77]      |
-| Miscellaneous Dynamic Feature  | 14  |dark green       | [0, 153, 51]     |
-| Ego Vehicle  | 15  |grey        | [191, 191, 191]      |
+| Text Region   | 11  |bright red        | [255, 0, 0]       |
+| Miscellaneous Non-Static Feature   | 12  |baby purple        | [204, 102, 255]      |
+| Person |13  |watermelon         | [255, 77, 77]      |
+| Forklift/Truck | 14  |dark green       | [0, 153, 51]     |
+|Miscellaneous Dynamic Feature    | 15  |grey        | [191, 191, 191]      |
 
 ## Dataset FAQ
 Q) Is the sensor data synchronized? \
