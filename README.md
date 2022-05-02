@@ -3,7 +3,7 @@
 ## Description
 This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**. [[Paper](Link)]. The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
-In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2 and Scenario_4-1). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
+In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](compare.png)
 
 ## To Do (Under construction)
