@@ -4,7 +4,7 @@
 This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf). The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
-![comparison](compare.png)
+![comparison](/Figures/compare.png)
 
 ## To Do (Under construction)
 - [x] Link to download dataset (April 27, 2022)
@@ -16,7 +16,7 @@ In the image below is an example of two frames captures by the robot at the Apri
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
 ## Data directory structure
-The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/TorWICDataset/blob/main/TorWIC_Dataset.pdf).
+The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/TorWICDataset/blob/main/TrajectoriesPDF/TorWIC_Dataset.pdf).
 
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
 
@@ -64,12 +64,12 @@ WarehouseSequences
 ## Robot and sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
-![Otto Robot](otto.png)
-![Table of sensors](sensor_table.png)
+![Otto Robot](/Figures/otto.png)
+![Table of sensors](/Figures/sensor_table.png)
 
 The dataset provides 18 trajectories in 4 scenarios, including the baseline setup. Each trajectory contains the robot traversing through a static  configuration of the environment, starting and finishing at the fixed April-Tag. Users can stitch the trajectories together with the provided script to create routes with structural changes in the scene. A high-level overview of the scenarios and trajectories is listed in the table below. 
 
-![trajs](trajs.png)
+![trajs](/Figures/trajs.png)
 
 
 ## How to merge trajectories into ROS bags
