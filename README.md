@@ -1,7 +1,7 @@
 # The Toronto Warehouse Incremental Change Dataset
 
 ## Description
-This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf). The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
+This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Paper_SuppMaterial/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Paper_SuppMaterial/Qian_Chatrath_POCD_SuppMaterial.pdf). The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](/Figures/compare.png)
@@ -123,7 +123,7 @@ A) The depth images from RealSense D435i are scaled by a factor of 1000. The uin
 
 When using **POCD** or the dataset in your research, please cite the following publication:
 
-Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, conditionally accepted to _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf) 
+Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, conditionally accepted to _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Paper_SuppMaterial/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Paper_SuppMaterial/Qian_Chatrath_POCD_SuppMaterial.pdf) 
 
 ```bibtex
 @INPROCEEDINGS{QianChatrathPOCD,
