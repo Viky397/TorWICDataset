@@ -76,7 +76,8 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 
 1) Clone this repository
 2) Ensure the Scenario folders that contain the dataset are in the repository folder
-3) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
+3) Create a folder called ```outputs``` in the repository folder
+4) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
 For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
 
 The script relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
