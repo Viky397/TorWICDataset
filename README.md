@@ -129,7 +129,7 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 ```bibtex
 @INPROCEEDINGS{QianChatrathPOCD,
   author={Qian, Jingxing and Chatrath, Veronica and Yang, Jun and Servos, James and Schoellig, Angela and Waslander, Steven L.},
-  booktitle={conditionally accepted to 2022 Robotics: Science and Systems (RSS)}, 
+  booktitle={2022 Robotics: Science and Systems (RSS)}, 
   title={{POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes}}, 
   year={2022},
   volume={},
