@@ -124,7 +124,7 @@ A) The depth images from RealSense D435i are scaled by a factor of 1000. The uin
 
 When using **POCD** or the dataset in your research, please cite the following publication:
 
-Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, conditionally accepted to _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf) 
+Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and Steven L. Waslander, **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, _2022 Robotics: Science and Systems (RSS)_, 2022. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf) 
 
 ```bibtex
 @INPROCEEDINGS{QianChatrathPOCD,
