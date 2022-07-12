@@ -9,8 +9,8 @@ In the image below is an example of two frames captures by the robot at the Apri
 ## To Do (Under construction)
 - [x] Link to download dataset (April 27, 2022)
 - [x] Python script to merge trajectories (April 30, 2022)
+- [x] New dataset collection in a real-world warehouse setting (Summer 2022)
 - [ ] Improve segmentation mask quality (TBD)
-- [ ] New dataset collection in a real-world warehouse setting (Summer 2022)
 
 ## Download dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
