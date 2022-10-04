@@ -222,8 +222,22 @@ for i in range(len(depth_cam_info)):
 
     lp = lg.LaserProjection()
     pc2_msg = lp.projectLaser(filt_laser_msg[i])
+
+#################################################################################
     pc = pypcd.PointCloud.from_msg(pc2_msg)
     pc.save(folder + "/LaserScans/" + str(count).zfill(4) + ".pcd")
+##################################################################################
+
+###### Try the following snippet if the above throws a PointCloud error###########
+#    points_list = []
+#    for data in pc2.read_points(pc2_msg, skip_nans=True):
+#       points_list.append([data[0], data[1], data[2], data[3]])
+
+#    pcl_data = pcl.PointCloud_PointXYZRGB()
+#    pcl_data.from_list(points_list)
+
+#   pcl.save(pcl_data, folder + "/LaserScans/" + str(count).zfill(4) + ".pcd")
+##################################################################################
 
     count +=1 
 data = np.column_stack([id_val, sec, nsec, pose_msg_x, pose_msg_y, pose_msg_z, pose_msg_qx, pose_msg_qy, pose_msg_qz, pose_msg_qw])
