@@ -5,6 +5,8 @@ import cv2
 from cv_bridge import CvBridge
 import laser_geometry.laser_geometry as lg
 import pypcd
+import pcl
+import sensor_msgs.point_cloud2 as pc2
 
 bag_in = rosbag.Bag('/home/veronica/Downloads/Tests/Test1/Test1-5/test1-5_orig.bag', 'r')   
 folder = "Test1/Test1-5/"
