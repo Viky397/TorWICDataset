@@ -13,7 +13,7 @@ from scipy.spatial.transform import Rotation as R
 class Pose:
     def __init__(self, id, time, data = [0 for i in range(9)]):
         print(data)
-        assert(len(data) == 7)
+        assert(len(data) == 8)
 
         # Frame
         self.frame = "map"
@@ -26,15 +26,15 @@ class Pose:
         self.time = time
 
         # Position
-        self.x = float(data[0])
-        self.y = float(data[1])
-        self.z = float(data[2]) + 0.7
+        self.x = float(data[1])
+        self.y = float(data[2])
+        self.z = float(data[3])
 
         # Orientation
-        self.qx = float(data[3])
-        self.qy = float(data[4])
-        self.qz = float(data[5])
-        self.qw = float(data[6])
+        self.qx = float(data[4])
+        self.qy = float(data[5])
+        self.qz = float(data[6])
+        self.qw = float(data[7])
 
         self.p = np.array([self.x,self.y,self.z])
         self.q = np.array([self.qx,self.qy,self.qz,self.qw])
@@ -44,14 +44,14 @@ class Pose:
         T_mc[0:3,0:3] = c
         T_mc[0:3,-1] = self.p
 
-        p_lc = np.array([0.,  0., 0.])
-        c_lc = np.array([[0,0,1],[-1,0,0],[0,-1,0]])
+        p_lc = np.array([0.12944592,  0.04299934, -0.11374339])
+        q_lc = np.array([-0.61167248,  0.39292797, -0.3567415,   0.58668551])
+        c_lc = R.from_quat(q_lc).as_matrix()
         T_lc = np.eye(4)
         T_lc[0:3,0:3] = c_lc
         T_lc[0:3,-1] = p_lc
 
-        #self.T_rob  = T_lc @ T_c
-        self.T_ml  = T_mc #T_lc @ T_mc @ np.linalg.inv(T_lc)
+        self.T_ml  = T_lc @ T_mc @ np.linalg.inv(T_lc)
 
         p_rob = self.T_ml[0:3,3]
         q_rob = tr.quaternion_from_matrix(self.T_ml)
