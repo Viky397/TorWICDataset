@@ -59,17 +59,18 @@ def unproject(img, K, width, height):
     return pc
 
 
-bag_in = rosbag.Bag('/home/jqian/Downloads/demo-longloopreverse/long_loop_reverse.bag', 'r')
+bag_in = rosbag.Bag('/home/jqian/Downloads/AP1_Test_Route/aisle1_reverse.bag', 'r')
 #bag_in = rosbag.Bag('/home/jqian/Downloads/cam_lidar_cal/left.bag', 'r')
 
 Width = 1280
 Height = 720
 
 # init guess
-T_init =np.array([[0.4272, -0.0258, 0.9038, 0.1723],
-[-0.9032, 0.0348, 0.4279, 0.1510],
-[-0.0425, -0.9991, -0.0085, -0.0728],
+T_init =np.array([[0.4366862, -0.0620963,  0.8974682, 0.12944592],
+[-0.8992766, -0.0028154,  0.4373713, 0.04299934],
+[-0.0246324, -0.9980662, -0.0570712, -0.11374339],
 [0	,0	,0	,1]])
+
 
 
 # factory
@@ -165,12 +166,12 @@ for i in indices:
 
     trans_init = np.eye(4)
 
-    print("Initial alignment")
+    #print("Initial alignment")
     
     evaluation = o3d.pipelines.registration.evaluate_registration(rgbdpc, o3dpc,
                                                         threshold, trans_init)
 
-    print("Apply point-to-point ICP")
+    #print("Apply point-to-point ICP")
     reg = o3d.pipelines.registration.registration_icp(
         rgbdpc, o3dpc, threshold, trans_init,
         o3d.pipelines.registration.TransformationEstimationPointToPlane())
@@ -180,20 +181,20 @@ for i in indices:
 
     rgbdpc.transform(T_rough)
     
-    print("Fine alignment")
+    #print("Fine alignment")
     threshold = 0.05
     evaluation = o3d.pipelines.registration.evaluate_registration(rgbdpc, o3dpc,
                                                         threshold, trans_init)                                     
 
-    print("Apply point-to-point ICP")
+    #print("Apply point-to-point ICP")
     reg = o3d.pipelines.registration.registration_icp(
         rgbdpc, o3dpc, threshold, trans_init,
         o3d.pipelines.registration.TransformationEstimationPointToPlane(),
         o3d.pipelines.registration.ICPConvergenceCriteria(max_iteration = 2000))
 
-    print("Transformation is:")
+    #print("Transformation is:")
     T_fine = reg.transformation
-    print(T_fine)
+    #print(T_fine)
 
     rgbdpc.transform(T_fine)
     
@@ -203,8 +204,8 @@ for i in indices:
     p_final = T_final[0:3,3]
     q_final = tr.quaternion_from_matrix(T_final)
 
-    print("p_final: ", p_final)
-    print("q_final: ", q_final)
+    print("p_final: ", p_final, "q_final: ", q_final)
+    #print("q_final: ", q_final)
 
     p_all = np.vstack([p_all,p_final])
     q_all = np.vstack([q_all,q_final])

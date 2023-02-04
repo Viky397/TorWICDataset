@@ -19,7 +19,7 @@ class DataLoader:
         self.rgb_folder = self.folder + "/image/"
         self.depth_folder = self.folder + "/depth/"
         self.mask_folder = self.folder + "/segmentation_greyscale/"
-        self.pose_file = self.folder + "/CameraTrajectory.txt"
+        self.pose_file = self.folder + "/evaluation/traj_gt.txt"
         self.time_file = self.folder + "/times.txt"
 
         if not os.path.exists(self.folder):
@@ -34,8 +34,8 @@ class DataLoader:
         self.poses_time = []
         self.poses = []
 
-        self.times = np.loadtxt(folder + "times.txt")
-        self.N = len(self.times)
+        self.times = np.loadtxt(self.time_file)
+        self.N = len(self.times) - 1
 
         self.start_time = self.times[0]
         self.end_time = self.times[self.N-1]

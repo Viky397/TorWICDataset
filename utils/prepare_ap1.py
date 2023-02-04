@@ -8,12 +8,14 @@ from tqdm import tqdm
 from open3d_ros_helper import open3d_ros_helper as orh
 import open3d as o3d
 from scipy.spatial.transform import Rotation as R
+import multiprocessing as mp 
 from multiprocessing.pool import ThreadPool
 from multiprocessing import get_context
 from concurrent.futures import ProcessPoolExecutor
 from sort_nicely import sort_nicely
 from mask_colors import mask_colors
 
+mp.set_start_method("fork") 
 
 def passthrough(pcd, bounds):
 	min_x = bounds[0]
@@ -29,21 +31,35 @@ def passthrough(pcd, bounds):
 	bbox = o3d.geometry.AxisAlignedBoundingBox(min_bound,max_bound)
 	return pcd.crop(bbox)
 
-bag_in = rosbag.Bag('/home/jqian/Downloads/demo-longloopreverse/long_loop_reverse.bag', 'r')
-seg_mono_in = '/home/jqian/Downloads/demo-longloopreverse/segmentation_greyscale_1'
+output_path = '/home/jqian/Downloads/AP1_Test_Route/output/racking/'
 
-rgb_out      = '/home/jqian/Downloads/demo-longloopreverse/image/'
-depth_out    = '/home/jqian/Downloads/demo-longloopreverse/depth/'
-seg_mono_out = '/home/jqian/Downloads/demo-longloopreverse/segmentation_greyscale/'
-seg_rgb_out  = '/home/jqian/Downloads/demo-longloopreverse/segmentation_colour/'
-time_out  = '/home/jqian/Downloads/demo-longloopreverse/times.txt'
-ext_out  = '/home/jqian/Downloads/demo-longloopreverse/cam_extrinsics.txt'
+bag_in = rosbag.Bag('/home/jqian/Downloads/AP1_Test_Route/racking_reverse_2.bag', 'r')
+seg_mono_in = '/home/jqian/Downloads/AP1_Test_Route/output/racking/segmentation_greyscale_raw'
+
+rgb_out      = output_path+'image/'
+depth_out    = output_path+'depth/'
+seg_mono_out = output_path+'segmentation_greyscale/'
+seg_rgb_out  = output_path+'segmentation_colour/'
+time_out  = output_path+'times.txt'
+ext_out  = output_path+'cam_extrinsics.txt'
+
+if not os.path.isdir(rgb_out):
+    os.mkdir(rgb_out)
+if not os.path.isdir(depth_out):
+    os.mkdir(depth_out)
+if not os.path.isdir(seg_mono_out):
+    os.mkdir(seg_mono_out)
+if not os.path.isdir(seg_rgb_out):
+    os.mkdir(seg_rgb_out)
 
 masks_mono_in = os.listdir(seg_mono_in)
 sort_nicely(masks_mono_in)
 
 Width = 1280
 Height = 720
+
+#tf_p = np.array([ -0.00674194,  0.01841007, -0.101108])
+#tf_r = np.array( [-0.60985934, 0.38587097 , -0.34736556 , 0.598759])
 
 tf_p = np.array([ 0.12944592,  0.04299934, -0.11374339])
 tf_r = np.array( [-0.61167248,  0.39292797, -0.3567415,   0.58668551])
@@ -54,17 +70,6 @@ T[0:3,0:3] = tf_C
 T[0:3,-1] = tf_p
 
 T_inv = np.linalg.inv(T)
-
-# factory
-'''
-fx = 608.5848999023438
-cx = 642.230224609375
-fy = 608.4966430664062
-cy = 366.0254211425781
-P = np.array([[fx, 0, cx, 0],[0, fy, cy, 0],[0, 0, 1, 0],[0, 0, 0, 1]])
-K = np.array([[fx,0.,cx],[0.,fy,cy],[0.,0.,1.]])
-D = np.array([0.121450,-2.315923,0.000223,-0.000383,1.495202,0.011486,-2.141217,1.416827])
-'''
 
 # matlab
 D = np.array([0.0754678811883405, -0.0314893098110791, 0.00101924098521082, 0.00209529701722382, -0.000935223936623030])
@@ -104,7 +109,7 @@ filt_rgb = []
 filt_rgb_time = []
 filt_rgb_dt = []
 
-filt_seg_idx = []
+
 
 for t in tqdm(pcd_time):
     idx = rgb_time.index(min(rgb_time, key=lambda x:abs(x - t)))
@@ -112,10 +117,12 @@ for t in tqdm(pcd_time):
     filt_rgb_time.append(rgb_time[idx])
     filt_rgb_dt.append(abs(rgb_time[idx] - t))
 
+filt_seg_idx = [i for i in range(len(filt_rgb))]
+
 # workaround
-for t in tqdm(filt_rgb_time):
-    idx = rgb_time.index(min(rgb_time, key=lambda x:abs(x - t)))
-    filt_seg_idx.append(idx)
+#for t in tqdm(filt_rgb_time):
+#    idx = rgb_time.index(min(rgb_time, key=lambda x:abs(x - t)))
+#    filt_seg_idx.append(idx)
 
 del bag_in
 del rgb_msg
@@ -127,7 +134,6 @@ print("Avg dt: ", np.mean(np.array(filt_rgb_dt)))
 print("Saving...")
 
 def do_work(i):
-#for i in tqdm(range(len(filt_pcd))):
     print('Working on', i)
     file_name = str(i).zfill(6)
     
@@ -197,7 +203,12 @@ def gen_extrinsics():
 gen_extrinsics()
 
   
-#with ThreadPool(processes=1) as pool:
-#    pool.map(do_work, [i for i in range(len(filt_rgb))])
+#with ThreadPool(processes=10) as pool:
+#    #pool.map(do_work, [i for i in range(len(filt_rgb))])
+#    pool.map(do_work, [i for i in range(10)])
+
+with ProcessPoolExecutor(max_workers=10) as pool:
+    pool.map(do_work, [i for i in range(len(filt_rgb))])
+    #pool.map(do_work, [i for i in range(10)])
 
 

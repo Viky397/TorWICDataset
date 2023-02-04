@@ -15,4 +15,8 @@ mask_colors = np.array([[0,0,0], #background #black
 [204, 102, 255], #person #baby purple
 [255, 77, 77], #fork_truck #watermelon  
 [0, 153, 51], #misc_dynamic_feature #dark green
-[191, 191, 191]], dtype=np.uint8) #ego_vehicle #grey
+[191, 191, 191],
+[204, 102, 255], #person #baby purple
+[204, 102, 255], #person #baby purple
+[204, 102, 255], #person #baby purple
+[204, 102, 255]], dtype=np.uint8) #ego_vehicle #grey

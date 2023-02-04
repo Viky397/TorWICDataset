@@ -3,6 +3,7 @@ import sys
 import numpy as np
 from tqdm import tqdm
 import rosbag
+import rospy
 
 from pose import Pose
 from imu import IMU
@@ -17,10 +18,12 @@ from data_loader_ap1 import DataLoader
 
 if __name__ == '__main__':
 
-    folder = "/home/jqian/Downloads/demo-longloopreverse/"
+    folder = "/home/jqian/Downloads/AP1_Test_Route/output/aisle"
 
     data = DataLoader(folder)
     times = np.loadtxt(folder + "/times.txt")
+    times += 1675442300
+
     N = len(times)
 
     # Write all data to an output bag
