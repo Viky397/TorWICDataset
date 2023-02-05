@@ -51,7 +51,7 @@ class Pose:
         T_lc[0:3,0:3] = c_lc
         T_lc[0:3,-1] = p_lc
 
-        self.T_ml  = T_lc @ T_mc @ np.linalg.inv(T_lc)
+        self.T_ml  = T_mc #T_lc @ T_mc @ np.linalg.inv(T_lc)
 
         p_rob = self.T_ml[0:3,3]
         q_rob = tr.quaternion_from_matrix(self.T_ml)

@@ -18,7 +18,7 @@ from data_loader_ap1 import DataLoader
 
 if __name__ == '__main__':
 
-    folder = "/home/jqian/Downloads/AP1_Test_Route/output/aisle"
+    folder = "/home/jqian/Downloads/AP1_Test_Route/output/fused_rack_aisle"
 
     data = DataLoader(folder)
     times = np.loadtxt(folder + "/times.txt")

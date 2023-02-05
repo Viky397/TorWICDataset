@@ -19,7 +19,7 @@ class DataLoader:
         self.rgb_folder = self.folder + "/image/"
         self.depth_folder = self.folder + "/depth/"
         self.mask_folder = self.folder + "/segmentation_greyscale/"
-        self.pose_file = self.folder + "/evaluation/traj_gt.txt"
+        self.pose_file = self.folder + "/evaluation/traj/traj_orb.csv"
         self.time_file = self.folder + "/times.txt"
 
         if not os.path.exists(self.folder):
