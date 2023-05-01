@@ -154,7 +154,7 @@ This work was supported by the Vector Institute for Artificial Intelligence in T
 | [Long Loop Forward](https://drive.google.com/file/d/1XpSlDWE_0SxraZFOIQz_TOFLklKrgW1k/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, clockwise. | Oct. 12, 2023  |
 | [Hallway Forward](https://drive.google.com/file/d/1OEHu3j6Q-hpy5ESwXOk2Cn6jwuy1QxN4/view?usp=sharing) | 1                       |X                    | Traversing through the hallway, clockwise. | Oct. 12, 2023  |
 | [Hallway Reverse](https://drive.google.com/file/d/124VNpn0PPk1fOp-p8wEg5UFzmjdqDr-P/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, counter-clockwise. | Oct. 12, 2023  |
-
+| -- |-- |-- |--| --|
 | [Aisle_Reverse_1](https://drive.google.com/file/d/1B0xb1BvKA2CZOgbPZMUpph6dOEFmmpaR/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles counter-clockwise. | June 23, 2023  |
 | [Aisle_Reverse_2](https://drive.google.com/file/d/1B0xb1BvKA2CZOgbPZMUpph6dOEFmmpaR/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles counter-clockwise. | June 23, 2023  |
 | [Aisle_Forward_1](https://drive.google.com/file/d/1xvRs3Hh1CB4ZfxeNhmdyA-pSdIkfUH5M/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles clockwise. | June 23, 2023  |
