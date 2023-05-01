@@ -145,6 +145,7 @@ This work was supported by the Vector Institute for Artificial Intelligence in T
 # WORK IN PROGRESS (WIP), Summer 2023
 
 ## Real-World Warehouse Scenario
+
 | Scenario   |  Number of Trajectories |   Total Number of Frames | Description     | Date     |
-|:----      | :----:   |   :----:   |          :----:|
-| Background      | 0  |black       | [0,0,0]   |
+|:----      | :----:   |   :----:   |          :----:|          :----:|
+| Background      | 0  |black       | [0,0,0]   |[0,0,0]   |
