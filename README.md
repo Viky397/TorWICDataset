@@ -1,6 +1,5 @@
-# Table of Contents 
-1. [The Toronto Warehouse Incremental Change Dataset](#The Toronto Warehouse Incremental Change Dataset)
-2. [TorWIC Description](#TorWIC Description)
+* TOC
+{:toc}
 
 # The Toronto Warehouse Incremental Change Dataset
 
