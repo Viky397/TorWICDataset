@@ -4,18 +4,20 @@ Table of contents
 <!--ts-->
    * [The Toronto Warehouse Incremental Change Mapping Dataset (TorWIC)](#The-Toronto-Warehouse-Incremental-Change-Mapping-Dataset-(TorWIC))
       * [TorWIC Description](#TorWIC-Description)
-      * [Download dataset](#Download-dataset)
+      * [Download TorWIC dataset](#Download-TorWIC-dataset)
       * [Data directory structure](#Data-directory-structure)
       * [TorWIC Robot and sensors](#TorWIC-Robot-and-sensors)
       * [POCD Citing](#POCD-Citing)
    * [The Toronto Warehouse Incremental Change SLAM Dataset (TorWIC-SLAM)](#The-Toronto-Warehouse-Incremental-Change-SLAM-Dataset-(TorWIC-SLAM))
       * [TorWIC-SLAM Description](#TorWIC-SLAM-Description)
-      * [Download dataset](#Download-dataset)
+      * [Download TorWIC-SLAM dataset](#Download-TorWIC-SLAM-dataset)
       * [Data directory structure](#Data-directory-structure)
       * [TorWIC-SLAM Robot and sensors](#TorWIC-SLAM-Robot-and-sensors)
       * [POV-SLAM Citing](#POV-SLAM-Citing)
-   * [# How to merge trajectories into ROS bags](#How-to-merge-trajectories-into-ROS-bags)
-   * [# Ground-truth segmentation for fine-tuning](#Ground-truth-segmentation-for-fine-tuning)
+   * [How to merge trajectories into ROS bags](#How-to-merge-trajectories-into-ROS-bags)
+   * [Ground-truth segmentation for fine-tuning](#Ground-truth-segmentation-for-fine-tuning)
+   * [Dataset FAQ](#Dataset-FAQ)
+   * [Acknowledgements](#Acknowledgements)
 <!--te-->
 
 # The Toronto Warehouse Incremental Change Mapping Dataset (TorWIC)
@@ -26,7 +28,7 @@ This repository contains the released dataset discussed in **POCD: Probabilistic
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](/Figures/compare.png)
 
-## Download dataset
+## Download TorWIC dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
 ## Data directory structure
@@ -111,7 +113,7 @@ This repository contains the released dataset discussed in **POCD: Probabilistic
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](/Figures/compare.png)
 
-## Download dataset
+## Download TorWIC-SLAM dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
 ## Data directory structure
@@ -124,40 +126,7 @@ WarehouseSequences
 |
 |----Baseline configuration
 |       +--- rgb                      # 0000.png - xxxx.png      
-|       +--- depth                    # 0000.png - xxxx.png
-|       +--- segmentation             # 0000.png - xxxx.png    
-|       +--- laser scans              # 0000.pcd - xxxx.pcd 
-|       --- poses.txt 
-|       --- imu.txt 
-|       --- odom.txt
-|
-|---- 1- Box Shifts and Rotations  
-|
-|-------Sequence 1-1
-|       +--- rgb                      # 0000.png - xxxx.png      
-|       +--- depth                    # 0000.png - xxxx.png
-|       +--- segmentation             # 0000.png - xxxx.png   
-|       +--- laser scans              # 0000.pcd - xxxx.pcd
-|       --- poses.txt 
-|       --- imu.txt 
-|       --- odom.txt
-|
-|-------Sequence 1-X
-|
-|---- 2- Removing Boxes
-|
-|-------Sequence 2-1
-|       +--- rgb                      # 0000.png - xxxx.png      
-|       +--- depth                    # 0000.png - xxxx.png
-|       +--- segmentation             # 0000.png - xxxx.png  
-|       +--- laser scans              # 0000.pcd - xxxx.pcd
-|       --- poses.txt 
-|       --- imu.txt 
-|       --- odom.txt
-|
-|-------Sequence 2-X
-|
-|---- X: Configuration Change
+
 ```
 ## TorWIC-SLAM Robot and sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
@@ -191,6 +160,23 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 | [Hallway Reverse_1-0](https://drive.google.com/file/d/1jPN2z8dM4DAgnhQgp6JDhuDz8hT6D-0z/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, counter-clockwise. | June 23, 2023  |
 | [Hallway Reverse_1-1](https://drive.google.com/file/d/11At-Kbmz91AqNA8n4jmIPv0nehz1CpWt/view?usp=share_link) | 1                       |X                    | NEEDS TO BE MERGED WITH ABOVE | June 23, 2023  |
 
+## POV-SLAM Citing
+
+When using **POV-SLAM** or the dataset in your research, please cite the following publication:
+
+Jingxing Qian, Veronica Chatrath, James Servos, Aaron Mavrinac, Wolfram Burgard, Steven L. Waslander, and Angela Schoellig, **POV-SLAM: Probabilistic Object-Level Variational SLAM**, _2023 Robotics: Science and Systems (RSS)_, 2023. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POVSLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POVSLAM_SuppMaterial.pdf) 
+
+```bibtex
+@INPROCEEDINGS{QianChatrathPOVSLAM,
+  author={Qian, Jingxing and Chatrath, Veronica and Servos, James and Mavrinac, James and Burgard, Wolfram and Waslander, Steven L. and Schoellig, Angela},
+  booktitle={2023 Robotics: Science and Systems (RSS)}, 
+  title={{POV-SLAM: Probabilistic Object-Level Variational SLAM}}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={},
+  doi={}}
+```
 
 # How to merge trajectories into ROS bags
 
