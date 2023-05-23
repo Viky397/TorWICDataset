@@ -1,16 +1,14 @@
+# Table of Contents 
+1. [The Toronto Warehouse Incremental Change Dataset](#The Toronto Warehouse Incremental Change Dataset)
+2. [TorWIC Description](#TorWIC Description)
+
 # The Toronto Warehouse Incremental Change Dataset
 
-## Description
+## TorWIC Description
 This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf). The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](/Figures/compare.png)
-
-## To Do (Under construction)
-- [x] Link to download dataset (April 27, 2022)
-- [x] Python script to merge trajectories (April 30, 2022)
-- [x] New dataset collection in a real-world warehouse setting (Summer 2022)
-- [ ] Improve segmentation mask quality (TBD)
 
 ## Download dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
