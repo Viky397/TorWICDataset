@@ -1,5 +1,23 @@
-* TOC
-{:toc}
+Table of contents
+=================
+
+<!--ts-->
+   * [The Toronto Warehouse Incremental Change Dataset](#The Toronto Warehouse Incremental Change Dataset)
+   * [TorWIC Description](#TorWIC-Description)
+      * [Download dataset](#Download-dataset)
+      * [Local files](#local-files)
+      * [Remote files](#remote-files)
+      * [Multiple files](#multiple-files)
+      * [Combo](#combo)
+      * [Auto insert and update TOC](#auto-insert-and-update-toc)
+      * [GitHub token](#github-token)
+      * [TOC generation with Github Actions](#toc-generation-with-github-actions)
+   * [Tests](#tests)
+   * [Dependency](#dependency)
+   * [Docker](#docker)
+     * [Local](#local)
+     * [Public](#public)
+<!--te-->
 
 # The Toronto Warehouse Incremental Change Dataset
 
