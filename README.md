@@ -13,6 +13,7 @@ Table of contents
       * [Download TorWIC-SLAM dataset](#Download-TorWIC-SLAM-dataset)
       * [Data directory structure](#Data-directory-structure)
       * [TorWIC-SLAM Robot and sensors](#TorWIC-SLAM-Robot-and-sensors)
+      * [Real-World Warehouse Scenario](#Real-World-Warehouse-Scenario)
       * [POV-SLAM Citing](#POV-SLAM-Citing)
    * [How to merge trajectories into ROS bags](#How-to-merge-trajectories-into-ROS-bags)
    * [Ground-truth segmentation for fine-tuning](#Ground-truth-segmentation-for-fine-tuning)
@@ -166,6 +167,9 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 | [Long Loop 1-1](https://drive.google.com/file/d/1PnWBsiU9PT8oZvgBwvowAazA4AW3Av47/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
 | [Long Loop Reverse 1-0](https://drive.google.com/file/d/1R8pVzW4IBuurV2ZV6kD8pSuGJvguf2Tx/view?usp=sharing) | 1                     |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, counter-clockwise.| June 15, 2022  |
 | [Long Loop Reverse 1-1](https://drive.google.com/file/d/1Zu572hGdt4dCeNdr4kHNmn3RFMruEGil/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
+| [Long Hallway 1-0](https://drive.google.com/file/d/1XpdznkqMSr41TvqLodPUldbsUzhi-vn1/view?usp=sharing) | 1                     |X                    | Traversing the long hallway alone | June 15, 2022  |
+| [Long Hallway 1-1](https://drive.google.com/file/d/1xjDCM-_x1PUTeu-qXjkwP9-Qlo3yOzX2/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
+
 
 ## POV-SLAM Citing
 
