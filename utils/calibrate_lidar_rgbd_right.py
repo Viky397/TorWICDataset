@@ -59,17 +59,22 @@ def unproject(img, K, width, height):
     return pc
 
 
-bag_in = rosbag.Bag('/home/jqian/Downloads/demo-longloopreverse/long_loop_reverse.bag', 'r')
+bag_in = rosbag.Bag('/home/jqian/Downloads/POV-SLAM/Experiments/demo-longloopreverse/long_loop_reverse.bag', 'r')
 #bag_in = rosbag.Bag('/home/jqian/Downloads/cam_lidar_cal/left.bag', 'r')
 
 Width = 1280
 Height = 720
 
 # init guess
-T_init =np.array([[0.4272, -0.0258, 0.9038, 0.1723],
-[-0.9032, 0.0348, 0.4279, 0.1510],
-[-0.0425, -0.9991, -0.0085, -0.0728],
+T_init =np.array([[-0.4159633, -0.0612660,  0.9073153, 0.12361888],
+[-0.9092719,  0.0125366, -0.4160137, -0.05236871],
+[0.0141129, -0.9980428, -0.0609223, -0.11045261],
 [0	,0	,0	,1]])
+
+T_init =np.array([[-0.3952075,  -0.09230251,  0.91394271,  0.07686256],
+ [-0.91807052,  0.00617267, -0.39636905, -0.15441064],
+ [ 0.03094439 ,-0.99571188, -0.0871797,  -0.1026438 ],
+ [ 0.    ,      0.     ,     0.       ,   1.        ]])
 
 
 # factory
@@ -96,7 +101,7 @@ pcd_time = []
 for topic, msg, t in bag_in:
 
     #if topic == "/left_azure/depth_to_rgb/image_raw/compressed":
-    if topic == "/left_azure/depth_to_rgb/image_raw":
+    if topic == "/right_azure/depth_to_rgb/image_raw":
         nsec = msg.header.stamp.to_sec()
         depth_time.append(nsec)
         depth_msg.append(msg)
@@ -106,7 +111,7 @@ for topic, msg, t in bag_in:
         pcd_time.append(nsec)
         pcd_msg.append(msg)
 
-    if len(pcd_msg) > 500:
+    if len(pcd_msg) > 50:
         break
     
 
@@ -165,12 +170,12 @@ for i in indices:
 
     trans_init = np.eye(4)
 
-    print("Initial alignment")
+    #print("Initial alignment")
     
     evaluation = o3d.pipelines.registration.evaluate_registration(rgbdpc, o3dpc,
                                                         threshold, trans_init)
 
-    print("Apply point-to-point ICP")
+    #print("Apply point-to-point ICP")
     reg = o3d.pipelines.registration.registration_icp(
         rgbdpc, o3dpc, threshold, trans_init,
         o3d.pipelines.registration.TransformationEstimationPointToPlane())
@@ -180,20 +185,20 @@ for i in indices:
 
     rgbdpc.transform(T_rough)
     
-    print("Fine alignment")
+    #print("Fine alignment")
     threshold = 0.05
     evaluation = o3d.pipelines.registration.evaluate_registration(rgbdpc, o3dpc,
                                                         threshold, trans_init)                                     
 
-    print("Apply point-to-point ICP")
+    #print("Apply point-to-point ICP")
     reg = o3d.pipelines.registration.registration_icp(
         rgbdpc, o3dpc, threshold, trans_init,
         o3d.pipelines.registration.TransformationEstimationPointToPlane(),
         o3d.pipelines.registration.ICPConvergenceCriteria(max_iteration = 2000))
 
-    print("Transformation is:")
+    #print("Transformation is:")
     T_fine = reg.transformation
-    print(T_fine)
+    #print(T_fine)
 
     rgbdpc.transform(T_fine)
     
@@ -210,7 +215,7 @@ for i in indices:
     q_all = np.vstack([q_all,q_final])
         
 
-    #draw_pcds(rgbdpc, o3dpc)
+    draw_pcds(rgbdpc, o3dpc)
 
 p_avg = np.mean(p_all, axis=0)
 q_avg = averageQuaternions(q_all)

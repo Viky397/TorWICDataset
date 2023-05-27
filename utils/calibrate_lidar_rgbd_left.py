@@ -59,7 +59,7 @@ def unproject(img, K, width, height):
     return pc
 
 
-bag_in = rosbag.Bag('/home/jqian/Downloads/AP1_Test_Route/aisle1_reverse.bag', 'r')
+bag_in = rosbag.Bag('/home/jqian/Downloads/POV-SLAM/Experiments/demo-longloopreverse/long_loop_reverse.bag', 'r')
 #bag_in = rosbag.Bag('/home/jqian/Downloads/cam_lidar_cal/left.bag', 'r')
 
 Width = 1280
@@ -70,7 +70,6 @@ T_init =np.array([[0.4366862, -0.0620963,  0.8974682, 0.12944592],
 [-0.8992766, -0.0028154,  0.4373713, 0.04299934],
 [-0.0246324, -0.9980662, -0.0570712, -0.11374339],
 [0	,0	,0	,1]])
-
 
 
 # factory
@@ -211,7 +210,7 @@ for i in indices:
     q_all = np.vstack([q_all,q_final])
         
 
-    #draw_pcds(rgbdpc, o3dpc)
+    draw_pcds(rgbdpc, o3dpc)
 
 p_avg = np.mean(p_all, axis=0)
 q_avg = averageQuaternions(q_all)
