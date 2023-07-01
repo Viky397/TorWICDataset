@@ -209,12 +209,14 @@ The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://otto
 ![SLAM Otto Robot](/Figures/slam_sensor_frames.png)
 ![Table of sensors](/Figures/sensor_table.png)
 
+We further provide centimeter-accurate 3D scan of the warehouse and robot poses. The image below shows a top view of the map.
 
+![Warehouse 3D Map](/Figures/slam_gt_map.png)
 
 
 ## TorWIC-SLAM Scenarios
 
-The dataset provides 20 trajectories in 3 scenarios, captured on 3 data collections days over 4 months. Each trajectory contains the robot traversing through regions of the warehouse, following a predefined path in clockwise and counter-clockwise directions. The robot always starts at the origin of our map frame. Users can stitch the trajectories together to create routes with structural changes in the scene. A high-level overview of the scenarios shown below. 
+The dataset provides 20 trajectories in 3 scenarios, captured on 3 data collections days over 4 months. Each trajectory contains the robot traversing through regions of the warehouse, following a predefined path in clockwise and counter-clockwise directions. The robot always starts at the origin of our map frame. Users can stitch the trajectories together to create routes with structural changes in the scene. A high-level overview of the scenarios is shown below. 
 
 ![SLAM Scenarios](/Figures/slam-scenarios.png)
 
