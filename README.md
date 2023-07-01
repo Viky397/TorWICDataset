@@ -247,7 +247,22 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 
 ## TorWIC-SLAM FAQ
 Q) Is the sensor data synchronized? \
-A) The sensors on the OTTO 100 platform are not synchronized with each other. For our dataset, we used the RealSense image timestamps as the reference, and take the measurements with the closest timestamp from the LiDAR and the poses. The provided odometry and IMU data is not sub-sampled. Please contact us if you need the unprocessed, raw data (as rosbags). 
+A) The two Azure Kinect RGB-D cameras are configured in a master (left) - subordinate (right) setup. The cameras and the Ouster OS1-128 LiDAR are synchronized using Precision Time Protocal (PTP). Unfortunately, it was not possible to synchronize the mounted sensors with the OTTO 100 base. The provided raw data (ROS bags) also contain additional robot base sensors such as wheel odometry but they need to be synchonized manually. 
+
+Q) How was the ground-truth 3D map obtained? \
+A) We used a Leica MS60 Total Station to scan portions of the warehouse. These sub-scans were processed and stiched together using the Leica Cyclone Register 360 software.
+
+Q) How were the poses obtained? \
+A) The poses (of the mounted Ouster OS1-128 LiDAR) were obtained by aligning the 3D scans against the ground-truth 3D map.
+
+Q) How were the segmentation masks obtained? \
+A) The provided semantic segmentation masks are not perfect. We trained a semantic segmentation model on thousands of human-labeled images from the same warehouse, and ran inference on the RGB images to obtain the masks. Unfortunately, the training data is proprietary and cannot be released. However, we release a subset of this dataset so users can fine-tune their models. 
+
+Q) How were the sensor intrinsics and extrinsics obtained?\
+A) The calibration information is provided with the dataset in a text file. The Azure Kinect RGB cameras were calibrated using the Matlab camera calibration toolbox. Their extrinsics w.r.t. the Ouster LiDAR were obtained by aligning the depth data against the LiDAR scans during a calibration session.
+
+Q) What is the unit of the depth values? \
+A) The depth images from the Azure Kinect cameras are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. 
 
 
 ## POV-SLAM Citing
