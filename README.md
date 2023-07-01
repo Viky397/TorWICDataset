@@ -140,6 +140,9 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 ## TorWIC-SLAM Description
 This repository contains the released dataset discussed in **POV-SLAM: Probabilistic Object-Level Variational SLAM**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM_SuppMaterial.pdf). The purpose of this dataset is to evaluate the SLAM capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility on three data collections days over a four months span.
 
+In the image below is an example of two frames captures by the robot while traversing in the aisles four months apart.
+![comparison](/Figures/slam_sample_frame.png)
+
 ## Download TorWIC-SLAM Dataset
 The real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 20 trajectories. Since the robot all starts close to the same position and orientation (origin of the ground-turth map), users can merge them to create a changing environment.
 
@@ -201,16 +204,20 @@ Each scenario configuration follows the same folder structure, as seen below. Pl
 |       --- traj_gt.txt 
 ```
 ## TorWIC-SLAM Robot and Sensors
-The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
+The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from two Azure Kinect RGB-D cameras and a Ouster OS1-128 3D LiDAR, all rigidly mounted on the top the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
-![Otto Robot](/Figures/otto.png)
+![SLAM Otto Robot](/Figures/slam_sensor_frames.png)
 ![Table of sensors](/Figures/sensor_table.png)
 
-The dataset provides 18 trajectories in 4 scenarios, including the baseline setup. Each trajectory contains the robot traversing through a static  configuration of the environment, starting and finishing at the fixed April-Tag. Users can stitch the trajectories together with the provided script to create routes with structural changes in the scene. A high-level overview of the scenarios and trajectories is listed in the table below. 
 
-![trajs](/Figures/trajs.png)
+
 
 ## TorWIC-SLAM Scenarios
+
+The dataset provides 20 trajectories in 3 scenarios, captured on 3 data collections days over 4 months. Each trajectory contains the robot traversing through regions of the warehouse, following a predefined path in clockwise and counter-clockwise directions. The robot always starts at the origin of our map frame. Users can stitch the trajectories together to create routes with structural changes in the scene. A high-level overview of the scenarios shown below. 
+
+![SLAM Scenarios](/Figures/slam-scenarios.png)
+
 
 | Scenario       |  Number of Trajectories |   Total Number of Frames | Description     | Date     |
 |:----          | :----:                   |   :----:                 |          :----: |          :----:|
