@@ -3,10 +3,12 @@ Table of contents
 
 <!--ts-->
    * [The Toronto Warehouse Incremental Change Mapping Dataset (TorWIC)](#The-Toronto-Warehouse-Incremental-Change-Mapping-Dataset-(TorWIC))
-      * [TorWIC Description](#TorWIC-Description)
+      * [TorWIC Description](#TorWIC-Mapping-Description)
       * [Download TorWIC dataset](#Download-TorWIC-dataset)
       * [Data directory structure](#Data-directory-structure)
       * [TorWIC Robot and sensors](#TorWIC-Robot-and-sensors)
+      * [How to merge trajectories into ROS bags](#How-to-merge-trajectories-into-ROS-bags)
+      * [Dataset FAQ](#Dataset-FAQ)
       * [POCD Citing](#POCD-Citing)
    * [The Toronto Warehouse Incremental Change SLAM Dataset (TorWIC-SLAM)](#The-Toronto-Warehouse-Incremental-Change-SLAM-Dataset-(TorWIC-SLAM))
       * [TorWIC-SLAM Description](#TorWIC-SLAM-Description)
@@ -15,15 +17,13 @@ Table of contents
       * [TorWIC-SLAM Robot and sensors](#TorWIC-SLAM-Robot-and-sensors)
       * [Real-World Warehouse Scenario](#Real-World-Warehouse-Scenario)
       * [POV-SLAM Citing](#POV-SLAM-Citing)
-   * [How to merge trajectories into ROS bags](#How-to-merge-trajectories-into-ROS-bags)
    * [Ground-truth segmentation for fine-tuning](#Ground-truth-segmentation-for-fine-tuning)
-   * [Dataset FAQ](#Dataset-FAQ)
    * [Acknowledgements](#Acknowledgements)
 <!--te-->
 
-# The Toronto Warehouse Incremental Change Mapping Dataset (TorWIC)
+# The Toronto Warehouse Incremental Change (TorWIC) Mapping Dataset 
 
-## TorWIC Description
+## TorWIC-Mapping Description
 This repository contains the released dataset discussed in **POCD: Probabilistic Object-Level Change Detection and Volumetric Mapping in Semi-Static Scenes**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POCD_SuppMaterial.pdf). The purpose of this dataset is to evaluate the map mainteneance capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
@@ -87,6 +87,32 @@ The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://otto
 The dataset provides 18 trajectories in 4 scenarios, including the baseline setup. Each trajectory contains the robot traversing through a static  configuration of the environment, starting and finishing at the fixed April-Tag. Users can stitch the trajectories together with the provided script to create routes with structural changes in the scene. A high-level overview of the scenarios and trajectories is listed in the table below. 
 
 ![trajs](/Figures/trajs.png)
+
+## How to merge trajectories into ROS bags
+
+1) Clone this repository
+2) Ensure the Scenario folders that contain the dataset are in the repository folder
+3) Create a folder called ```outputs``` in the repository folder
+4) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
+For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
+
+The script relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
+
+## Dataset FAQ
+Q) Is the sensor data synchronized? \
+A) The sensors on the OTTO 100 platform are not synchronized with each other. For our dataset, we used the RealSense image timestamps as the reference, and take the measurements with the closest timestamp from the LiDAR and the poses. The provided odometry and IMU data is not sub-sampled. Please contact us if you need the unprocessed, raw data (as rosbags). 
+
+Q) How were the poses obtained? \
+A) The poses of the robot were obtained offline using a proprietary LiDAR-based SLAM solution. 
+
+Q) How were the segmentation masks obtained? \
+A) The provided semantic segmentation masks are not perfect. We trained a semantic segmentation model on thousands of human-labeled warehouse images, and ran inference on the RGB images to obtain the masks. Unfortunately, the training data is proprietary and cannot be released. However, we release a subset of this dataset so users can fine-tune their models. 
+
+Q) Where are the sensor intrinsics and extrinsics? How were they obtained?\
+A) This information is provided in the data Google Drive link in the text file. Sensor extrinsics are also provided in the ROS bags under the tf\_static topic. This information is the same for all trajectories. The RealSense camera was calibrated with the Intel's OEM calibration tool. Sensor extrinsics are factory calibrated.
+
+Q) What is the unit of the depth values? \
+A) The depth images from RealSense D435i are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. 
 
 ## POCD Citing
 
@@ -189,16 +215,6 @@ Jingxing Qian, Veronica Chatrath, James Servos, Aaron Mavrinac, Wolfram Burgard,
   doi={}}
 ```
 
-# How to merge trajectories into ROS bags
-
-1) Clone this repository
-2) Ensure the Scenario folders that contain the dataset are in the repository folder
-3) Create a folder called ```outputs``` in the repository folder
-4) Run: ```python3 utils/create_rosbag_from_trajs.py <traj 1> <traj_2> ... <traj_n>``` \
-For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
-
-The script relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
-
 # Ground-truth segmentation for fine-tuning
 A proprietary model was trained to produce the semantic labels for the dataset. Unfortunately, the full training data cannot be released. However, we release a subset of this data such that users can fine-tune their models, if needed. Within the [main folder](https://drive.google.com/file/d/1ovm4ycVrQfpuseI2Kc8TofS-LI0Nly_I/view?usp=sharing), there are 79 folders with unique ID's. Within each folder, there are 3 sets of images, each within its own sub-folder. Each image folder contains an image of the individual semantic mask, the source RGB image, the combined semantic mask image, the combined semantic indexed image, and an annotation ```.json file```. For training purposes, the combined indexed image should be used ```combined_indexedImage.png```. Each pixel holds the class ID of the semantic class corresponding to the table below. The provided ROSbags of the dataset contain colourized masks that correspond to the Class ID column in the table below. 
 
@@ -221,21 +237,7 @@ A proprietary model was trained to produce the semantic labels for the dataset. 
 | Forklift/Truck | 14  |dark green       | [0, 153, 51]     |
 |Miscellaneous Dynamic Feature    | 15  |grey        | [191, 191, 191]      |
 
-# Dataset FAQ
-Q) Is the sensor data synchronized? \
-A) The sensors on the OTTO 100 platform are not synchronized with each other. For our dataset, we used the RealSense image timestamps as the reference, and take the measurements with the closest timestamp from the LiDAR and the poses. The provided odometry and IMU data is not sub-sampled. Please contact us if you need the unprocessed, raw data (as rosbags). 
 
-Q) How were the poses obtained? \
-A) The poses of the robot were obtained offline using a proprietary LiDAR-based SLAM solution. 
-
-Q) How were the segmentation masks obtained? \
-A) The provided semantic segmentation masks are not perfect. We trained a semantic segmentation model on thousands of human-labeled warehouse images, and ran inference on the RGB images to obtain the masks. Unfortunately, the training data is proprietary and cannot be released. However, we release a subset of this dataset so users can fine-tune their models. 
-
-Q) Where are the sensor intrinsics and extrinsics? How were they obtained?\
-A) This information is provided in the data Google Drive link in the text file. Sensor extrinsics are also provided in the ROS bags under the tf\_static topic. This information is the same for all trajectories. The RealSense camera was calibrated with the Intel's OEM calibration tool. Sensor extrinsics are factory calibrated.
-
-Q) What is the unit of the depth values? \
-A) The depth images from RealSense D435i are scaled by a factor of 1000. The uint16 values can be converted into float values and multiplied by 0.001 to get depth values in meters. 
 
 # Acknowledgments
 This work was supported by the Vector Institute for Artificial Intelligence in Toronto and the NSERC Canadian Robotics Network (NCRN). We would like to thank Clearpath Robotics for providing the facility and the robot platform that made this dataset possible. 
