@@ -138,43 +138,64 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 This repository contains the released dataset discussed in **POV-SLAM: Probabilistic Object-Level Variational SLAM**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM_SuppMaterial.pdf). The purpose of this dataset is to evaluate the SLAM capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility on three data collections days over a four months span.
 
 ## Download TorWIC-SLAM Dataset
-The novel real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 20 trajectories. Since the robot all starts close to the same position and orientation (origin of the ground-turth map), users can merge them to create a changing environment.
+The real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 20 trajectories. Since the robot all starts close to the same position and orientation (origin of the ground-turth map), users can merge them to create a changing environment.
 
 ## Data Directory Structure
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
 
 ```
-WarehouseSequences
+|--groundtruth_map.ply                       # Ground-truth 3D scan of the warehouse, captured using Leica MS-60 Total Station
+|--calibrations.txt                          # Extrinsic and intrinsic calibrations of the Azure RGB-D cameras
+|
+|--WarehouseSequences
 |
 |----Scenario 1 Traversal 1
-|       +--- rgb                      # 0000.png - xxxx.png      
-|       +--- depth                    # 0000.png - xxxx.png
-|       +--- segmentation             # 0000.png - xxxx.png    
-|       +--- laser scans              # 0000.pcd - xxxx.pcd 
-|       --- poses.txt 
-|       --- imu.txt 
-|       --- odom.txt
+|       +--- image_left                      # 0000.png - xxxx.png, RGB images from left Azure camera
+|       +--- image_right                     # 0000.png - xxxx.png, RGB images from right Azure camera
+|       +--- depth_left                      # 0000.png - xxxx.png, RGB-aligned depth images from left Azure camera
+|       +--- depth_right                     # 0000.png - xxxx.png, RGB-aligned depth images from right Azure camera
+|       +--- segmentation_color_left         # 0000.png - xxxx.png, Segmentation masks (colored) from left Azure camera
+|       +--- segmentation_color_right        # 0000.png - xxxx.png, Segmentation masks (colored) from right Azure camera
+|       +--- segmentation_greyscale_left     # 0000.png - xxxx.png, Segmentation masks (class ID) from left Azure camera
+|       +--- segmentation_greyscale_right    # 0000.png - xxxx.png, Segmentation masks (class ID) from right Azure camera
+|       +--- lidar                           # 0000.pcd - xxxx.pcd, 3D scans from Ouster OS1-128 LiDAR
+|       --- imu_left.txt                     # Raw IMU data from left Azure camera
+|       --- imu_right.txt                    # Raw IMU data from right Azure camera
+|       --- frame_times.txt                  # Timestamps of RGB, depth, segmentation and lidar frames
+|       --- traj_gt.txt                      # Ground-truth poses of Ouster OS1-128 LiDAR
 |
 |
-|-------Scenario 1 Traversal 2
-|       +--- rgb                      # 0000.png - xxxx.png      
-|       +--- depth                    # 0000.png - xxxx.png
-|       +--- segmentation             # 0000.png - xxxx.png   
-|       +--- laser scans              # 0000.pcd - xxxx.pcd
-|       --- poses.txt 
-|       --- imu.txt 
-|       --- odom.txt
+|----Scenario 1 Traversal 2
+|       +--- image_left                      # 0000.png - xxxx.png
+|       +--- image_right                     # 0000.png - xxxx.png
+|       +--- depth_left                      # 0000.png - xxxx.png
+|       +--- depth_right                     # 0000.png - xxxx.png
+|       +--- segmentation_color_left         # 0000.png - xxxx.png
+|       +--- segmentation_color_right        # 0000.png - xxxx.png
+|       +--- segmentation_greyscale_left     # 0000.png - xxxx.png
+|       +--- segmentation_greyscale_right    # 0000.png - xxxx.png
+|       +--- lidar                           # 0000.pcd - xxxx.pcd
+|       --- imu_left.txt                    
+|       --- imu_right.txt                   
+|       --- frame_times.txt                 
+|       --- traj_gt.txt                      
 |
 |
 |
-|-------Scenario X Traversal Y
-|       +--- rgb                      # 0000.png - xxxx.png      
-|       +--- depth                    # 0000.png - xxxx.png
-|       +--- segmentation             # 0000.png - xxxx.png  
-|       +--- laser scans              # 0000.pcd - xxxx.pcd
-|       --- poses.txt 
-|       --- imu.txt 
-|       --- odom.txt
+|----Scenario X Traversal Y
+|       +--- image_left                      # 0000.png - xxxx.png
+|       +--- image_right                     # 0000.png - xxxx.png
+|       +--- depth_left                      # 0000.png - xxxx.png
+|       +--- depth_right                     # 0000.png - xxxx.png
+|       +--- segmentation_color_left         # 0000.png - xxxx.png
+|       +--- segmentation_color_right        # 0000.png - xxxx.png
+|       +--- segmentation_greyscale_left     # 0000.png - xxxx.png
+|       +--- segmentation_greyscale_right    # 0000.png - xxxx.png
+|       +--- lidar                           # 0000.pcd - xxxx.pcd
+|       --- imu_left.txt                    
+|       --- imu_right.txt                   
+|       --- frame_times.txt                 
+|       --- traj_gt.txt 
 ```
 ## TorWIC-SLAM Robot and Sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
@@ -240,7 +261,7 @@ Jingxing Qian, Veronica Chatrath, James Servos, Aaron Mavrinac, Wolfram Burgard,
 ```
 
 # Ground-truth Segmentation for Fine-tuning
-A proprietary model was trained to produce the semantic labels for the dataset. Unfortunately, the full training data cannot be released. However, we release a subset of this data such that users can fine-tune their models, if needed. Within the [main folder](https://drive.google.com/file/d/1ovm4ycVrQfpuseI2Kc8TofS-LI0Nly_I/view?usp=sharing), there are 79 folders with unique ID's. Within each folder, there are 3 sets of images, each within its own sub-folder. Each image folder contains an image of the individual semantic mask, the source RGB image, the combined semantic mask image, the combined semantic indexed image, and an annotation ```.json file```. For training purposes, the combined indexed image should be used ```combined_indexedImage.png```. Each pixel holds the class ID of the semantic class corresponding to the table below. The provided ROSbags of the dataset contain colourized masks that correspond to the Class ID column in the table below. 
+A proprietary model was trained to produce the semantic labels for the datasets. Unfortunately, the full training data cannot be released. However, we release a subset of this data such that users can fine-tune their models, if needed. Within the [main folder](https://drive.google.com/file/d/1ovm4ycVrQfpuseI2Kc8TofS-LI0Nly_I/view?usp=sharing), there are 79 folders with unique ID's. Within each folder, there are 3 sets of images, each within its own sub-folder. Each image folder contains an image of the individual semantic mask, the source RGB image, the combined semantic mask image, the combined semantic indexed image, and an annotation ```.json file```. For training purposes, the combined indexed image should be used ```combined_indexedImage.png```. Each pixel holds the class ID of the semantic class corresponding to the table below. The datasets also contain colourized masks that correspond to the Class ID column in the table below. 
 
 | Semantic Class     |  uint16 Class ID |   Colour | RGB     |
 |:----      | :----:   |   :----:   |          :----:|
