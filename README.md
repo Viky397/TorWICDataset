@@ -216,43 +216,13 @@ We further provide centimeter-accurate 3D scan of the warehouse and robot poses.
 
 ## TorWIC-SLAM Scenarios
 
-The dataset provides 20 trajectories in 3 scenarios, captured on 3 data collections days over 4 months. Each trajectory contains the robot traversing through regions of the warehouse, following a predefined path in clockwise and counter-clockwise directions. The robot always starts at the origin of our map frame. Users can stitch the trajectories together to create routes with structural changes in the scene. A high-level overview of the scenarios is shown below. 
+The dataset provides 20 trajectories in 3 scenarios, captured on 3 data collections days over 4 months. Each trajectory contains the robot traversing through regions of the warehouse, following a predefined path in clockwise and counter-clockwise directions. The robot always starts at the origin of our map frame. Users can stitch the trajectories together to create routes with structural changes in the scene. The graphical illustrations of the scenarios and the dataset breakdown are shown below. 
 
 ![SLAM Scenarios](/Figures/slam-scenarios.png)
 
+![SLAM Scenarios Type Breakdown](/Figures/slam_scenarios_type.png)
 
-| Scenario       |  Number of Trajectories |   Total Number of Frames | Description     | Date     |
-|:----          | :----:                   |   :----:                 |          :----: |          :----:|
-| [Aisle_Reverse](https://drive.google.com/file/d/1B0xb1BvKA2CZOgbPZMUpph6dOEFmmpaR/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles counter-clockwise. | Oct. 12, 2022  |
-| [Aisle_Forward](https://drive.google.com/file/d/1xvRs3Hh1CB4ZfxeNhmdyA-pSdIkfUH5M/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles clockwise. | Oct. 12, 2022  |
-| [Long Loop Reverse](https://drive.google.com/file/d/1mhVeV3_HN1KrRO0gv8lyuQaS-rE-2YYw/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, counter-clockwise. | Oct. 12, 2022  |
-| [Long Loop Forward](https://drive.google.com/file/d/1XpSlDWE_0SxraZFOIQz_TOFLklKrgW1k/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, clockwise. | Oct. 12, 2022  |
-| [Hallway Forward](https://drive.google.com/file/d/1OEHu3j6Q-hpy5ESwXOk2Cn6jwuy1QxN4/view?usp=sharing) | 1                       |X                    | Traversing through the hallway, clockwise. | Oct. 12, 2022  |
-| [Hallway Reverse](https://drive.google.com/file/d/124VNpn0PPk1fOp-p8wEg5UFzmjdqDr-P/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, counter-clockwise. | Oct. 12, 2022  |
-| -- |-- |-- |--| --|
-| [Aisle_Reverse_1](https://drive.google.com/file/d/1bNhI4Z41--pkP4WYX3MpS84_ZbeHxMe5/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles counter-clockwise. | June 23, 2022  |
-| [Aisle_Reverse_2](https://drive.google.com/file/d/1nBzTzdlQ7sLKFlMDle-5mg1ewREonuar/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles counter-clockwise. | June 23, 2022  |
-| [Aisle_Forward_1](https://drive.google.com/file/d/1oqiWtlkyMUtmC_hV72SFRISXo0Z4ncim/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles clockwise. | June 23, 2022  |
-| [Aisle_Forward_2](https://drive.google.com/file/d/1kB44gdQrkcHFyhfdMLXr6ekmg3JjeJeQ/view?usp=share_link) | 1                       |X                    | Traversing through the shelved aisles clockwise. | June 23, 2022  |
-| [Long Loop Reverse_1-0](https://drive.google.com/file/d/1-_nMX3pHb6CEiMTcsF1dtSaospPlW-uE/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, counter-clockwise. | June 23, 2022  |
-| [Long Loop Reverse_1-1](https://drive.google.com/file/d/1whvgwx4lys23k7cgkJoaU0I9xrnt-fum/view?usp=share_link) | 1                       |X                    | NEEDS TO BE MERGED WITH ABOVE | June 23, 2022 |
-| [Hallway Forward_1-0](https://drive.google.com/file/d/1TO-RsmBN031DG7oTJL4QLt-2G0nlL7A5/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, clockwise. | June 23, 2022  |
-| [Hallway Forward_1-1](https://drive.google.com/file/d/1y83zAKBg6_V4e8DIE-Tp-FzV0I8trsap/view?usp=share_link) | 1                       |X                    | NEEDS TO BE MERGED WITH ABOVE | June 23, 2022  |
-| [Hallway Reverse_1-0](https://drive.google.com/file/d/1jPN2z8dM4DAgnhQgp6JDhuDz8hT6D-0z/view?usp=share_link) | 1                       |X                    | Traversing through the hallway, counter-clockwise. | June 23, 2022  |
-| [Hallway Reverse_1-1](https://drive.google.com/file/d/11At-Kbmz91AqNA8n4jmIPv0nehz1CpWt/view?usp=share_link) | 1                       |X                    | NEEDS TO BE MERGED WITH ABOVE | June 23, 2022  |
-| -- |-- |-- |--| --|
-| [Aisle Forward_1](https://drive.google.com/file/d/1mQEaN7tRBbhbASYzyaDYf-Ft_ClpMs4r/view?usp=share_link) | 1                     |X                    | Traversing through the shelved aisles clockwise. | June 15, 2022  |
-| [Aisle Forward_2](https://drive.google.com/file/d/1PTT8wlBF59WKe011QVaytL3Gkrjysffs/view?usp=sharing) | 1                     |X                    | Traversing through the shelved aisles clockwise. | June 15, 2022  |
-| [Aisle Forward_3](https://drive.google.com/file/d/1QF8rWbPL8pp-pK42JxxzRzZH_SYNGGK_/view?usp=sharing) | 1                     |X                    | Traversing through the shelved aisles clockwise. | June 15, 2022  |
-| [Aisle Reverse 1](https://drive.google.com/file/d/17ApJW7oIR-1FYfW2j-TfAEgxmbClNyAE/view?usp=sharingg) | 1                     |X                    | Traversing through the shelved aisles counter-clockwise.| June 15, 2022  |
-| [Aisle Reverse 2](https://drive.google.com/file/d/13AmqexEbejrtH97oNp6IOXC7Gqvpcz1X/view?usp=sharing) | 1                     |X                    | Traversing through the shelved aisles counter-clockwise. | June 15, 2022  |
-| [Long Loop 1-0](https://drive.google.com/file/d/1in8FwUAJ8Q5hiWE7pOUl9FO8CJ4FgZoF/view?usp=sharing) | 1                     |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, clockwise.| June 15, 2022  |
-| [Long Loop 1-1](https://drive.google.com/file/d/1PnWBsiU9PT8oZvgBwvowAazA4AW3Av47/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
-| [Long Loop Reverse 1-0](https://drive.google.com/file/d/1R8pVzW4IBuurV2ZV6kD8pSuGJvguf2Tx/view?usp=sharing) | 1                     |X                    | Traversing through the hallway, shelved aisles, and whole warehouse, counter-clockwise.| June 15, 2022  |
-| [Long Loop Reverse 1-1](https://drive.google.com/file/d/1Zu572hGdt4dCeNdr4kHNmn3RFMruEGil/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
-| [Long Hallway 1-0](https://drive.google.com/file/d/1XpdznkqMSr41TvqLodPUldbsUzhi-vn1/view?usp=sharing) | 1                     |X                    | Traversing the long hallway alone | June 15, 2022  |
-| [Long Hallway 1-1](https://drive.google.com/file/d/1xjDCM-_x1PUTeu-qXjkwP9-Qlo3yOzX2/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
-
+![SLAM Scenarios Date Breakdown](/Figures/slam_scenarios_date.png)
 
 ## TorWIC-SLAM FAQ
 Q) Is the sensor data synchronized? \
