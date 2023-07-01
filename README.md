@@ -3,21 +3,21 @@ Table of contents
 
 <!--ts-->
    * [The Toronto Warehouse Incremental Change (TorWIC) Mapping Dataset](#The-Toronto-Warehouse-Incremental-Change-(TorWIC)-Mapping-Dataset)
-      * [TorWIC Description](#TorWIC-Mapping-Description)
-      * [Download TorWIC dataset](#Download-TorWIC-dataset)
-      * [Data directory structure](#Data-directory-structure)
-      * [TorWIC Robot and sensors](#TorWIC-Robot-and-sensors)
-      * [How to merge trajectories into ROS bags](#How-to-merge-trajectories-into-ROS-bags)
+      * [TorWIC-Mapping Description](#TorWIC-Mapping-Description)
+      * [Download TorWIC-Mapping dataset](#Download-TorWIC-Mapping-Dataset)
+      * [Data Directory Structure](#Data-Directory-Structure)
+      * [TorWIC Robot and Sensors](#TorWIC-Robot-and-sensors)
+      * [How to Merge Trajectories into ROS Bags](#How-to-Merge-Trajectories-into-ROS-Bags)
       * [Dataset FAQ](#Dataset-FAQ)
       * [POCD Citing](#POCD-Citing)
-   * [The Toronto Warehouse Incremental Change SLAM Dataset (TorWIC-SLAM)](#The-Toronto-Warehouse-Incremental-Change-SLAM-Dataset-(TorWIC-SLAM))
+   * [The Toronto Warehouse Incremental Change SLAM Dataset](#The-Toronto-Warehouse-Incremental-Change-SLAM-Dataset)
       * [TorWIC-SLAM Description](#TorWIC-SLAM-Description)
-      * [Download TorWIC-SLAM dataset](#Download-TorWIC-SLAM-dataset)
-      * [Data directory structure](#Data-directory-structure)
-      * [TorWIC-SLAM Robot and sensors](#TorWIC-SLAM-Robot-and-sensors)
+      * [Download TorWIC-SLAM Dataset](#Download-TorWIC-SLAM-Dataset)
+      * [Data Directory Structure](#Data-Directory-Structure)
+      * [TorWIC-SLAM Robot and Sensors](#TorWIC-SLAM-Robot-and-Sensors)
       * [Real-World Warehouse Scenario](#Real-World-Warehouse-Scenario)
       * [POV-SLAM Citing](#POV-SLAM-Citing)
-   * [Ground-truth segmentation for fine-tuning](#Ground-truth-segmentation-for-fine-tuning)
+   * [Ground-truth Segmentation for Fine-tuning](#Ground-truth-Segmentation-for-Fine-tuning)
    * [Acknowledgements](#Acknowledgements)
 <!--te-->
 
@@ -29,10 +29,10 @@ This repository contains the released dataset discussed in **POCD: Probabilistic
 In the image below is an example of two frames captures by the robot at the AprilTag in two scenarios (Scenario_2-2: top and Scenario_4-1:bottom). Changes include 3 stacks of boxes added in front of the fence, and an additional box wall to the right of the fence.
 ![comparison](/Figures/compare.png)
 
-## Download TorWIC dataset
+## Download TorWIC-Mapping Dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
-## Data directory structure
+## Data Directory Structure
 The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/TorWICDataset/blob/main/TorWIC_Dataset.pdf).
 
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
@@ -78,7 +78,7 @@ WarehouseSequences
 |---- X: Configuration Change
 ```
 
-## TorWIC Robot and sensors
+## TorWIC Robot and Sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
 ![Otto Robot](/Figures/otto.png)
@@ -88,7 +88,7 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 
 ![trajs](/Figures/trajs.png)
 
-## How to merge trajectories into ROS bags
+## How to Merge Trajectories into ROS Bags
 
 1) Clone this repository
 2) Ensure the Scenario folders that contain the dataset are in the repository folder
@@ -132,15 +132,15 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
   doi={}}
 ```
 
-# The Toronto Warehouse Incremental Change SLAM Dataset (TorWIC-SLAM)
+# The Toronto Warehouse Incremental Change SLAM Dataset
 
 ## TorWIC-SLAM Description
 This repository contains the released dataset discussed in **POV-SLAM: Probabilistic Object-Level Variational SLAM**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM_SuppMaterial.pdf). The purpose of this dataset is to evaluate the SLAM capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
 
-## Download TorWIC-SLAM dataset
+## Download TorWIC-SLAM Dataset
 The novel real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 10 trajectories that can be merged using the provided script to create a changing environment.
 
-## Data directory structure
+## Data Directory Structure
 The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/TorWICDataset/blob/main/TorWIC_Dataset.pdf).
 
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
@@ -152,7 +152,7 @@ WarehouseSequences
 |       +--- rgb                      # 0000.png - xxxx.png      
 
 ```
-## TorWIC-SLAM Robot and sensors
+## TorWIC-SLAM Robot and Sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
 ![Otto Robot](/Figures/otto.png)
@@ -215,7 +215,7 @@ Jingxing Qian, Veronica Chatrath, James Servos, Aaron Mavrinac, Wolfram Burgard,
   doi={}}
 ```
 
-# Ground-truth segmentation for fine-tuning
+# Ground-truth Segmentation for Fine-tuning
 A proprietary model was trained to produce the semantic labels for the dataset. Unfortunately, the full training data cannot be released. However, we release a subset of this data such that users can fine-tune their models, if needed. Within the [main folder](https://drive.google.com/file/d/1ovm4ycVrQfpuseI2Kc8TofS-LI0Nly_I/view?usp=sharing), there are 79 folders with unique ID's. Within each folder, there are 3 sets of images, each within its own sub-folder. Each image folder contains an image of the individual semantic mask, the source RGB image, the combined semantic mask image, the combined semantic indexed image, and an annotation ```.json file```. For training purposes, the combined indexed image should be used ```combined_indexedImage.png```. Each pixel holds the class ID of the semantic class corresponding to the table below. The provided ROSbags of the dataset contain colourized masks that correspond to the Class ID column in the table below. 
 
 | Semantic Class     |  uint16 Class ID |   Colour | RGB     |
