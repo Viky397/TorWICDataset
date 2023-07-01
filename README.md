@@ -7,15 +7,17 @@ Table of contents
       * [Download TorWIC-Mapping dataset](#Download-TorWIC-Mapping-Dataset)
       * [TorWIC-Mapping Data Directory Structure](#TorWIC-Mapping-Data-Directory-Structure)
       * [TorWIC-Mapping Robot and Sensors](#TorWIC-Mapping-Robot-and-sensors)
+      * [TorWIC-Mapping Scenarios](#TorWIC-Mapping-Scenarios)
       * [How to Merge Trajectories into ROS Bags](#How-to-Merge-Trajectories-into-ROS-Bags)
-      * [Dataset FAQ](#Dataset-FAQ)
+      * [TorWIC-Mapping FAQ](#TorWIC-Mapping-FAQ)
       * [POCD Citing](#POCD-Citing)
    * [The Toronto Warehouse Incremental Change SLAM Dataset](#The-Toronto-Warehouse-Incremental-Change-SLAM-Dataset)
       * [TorWIC-SLAM Description](#TorWIC-SLAM-Description)
       * [Download TorWIC-SLAM Dataset](#Download-TorWIC-SLAM-Dataset)
       * [TorWIC-SLAM Data Directory Structure](#TorWIC-SLAM-Data-Directory-Structure)
       * [TorWIC-SLAM Robot and Sensors](#TorWIC-SLAM-Robot-and-Sensors)
-      * [Real-World Warehouse Scenario](#Real-World-Warehouse-Scenario)
+      * [TorWIC-SLAM Scenarios](#TorWIC-SLAM-Scenarios)
+      * [TorWIC-SLAM FAQ](#TorWIC-SLAM-FAQ)
       * [POV-SLAM Citing](#POV-SLAM-Citing)
    * [Ground-truth Segmentation for Fine-tuning](#Ground-truth-Segmentation-for-Fine-tuning)
    * [Acknowledgements](#Acknowledgements)
@@ -84,6 +86,7 @@ The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://otto
 ![Otto Robot](/Figures/otto.png)
 ![Table of sensors](/Figures/sensor_table.png)
 
+## TorWIC-Mapping Scenarios
 The dataset provides 18 trajectories in 4 scenarios, including the baseline setup. Each trajectory contains the robot traversing through a static  configuration of the environment, starting and finishing at the fixed April-Tag. Users can stitch the trajectories together with the provided script to create routes with structural changes in the scene. A high-level overview of the scenarios and trajectories is listed in the table below. 
 
 ![trajs](/Figures/trajs.png)
@@ -98,7 +101,7 @@ For example: ```python3 utils/create_rosbag_from_trajs.py 1-2 3-1```
 
 The script relies on ```pypcd``` to proces the laser scans. If you are using Python3, please use the following [version](https://github.com/dimatura/pypcd/pull/35).
 
-## Dataset FAQ
+## TorWIC-Mapping FAQ
 Q) Is the sensor data synchronized? \
 A) The sensors on the OTTO 100 platform are not synchronized with each other. For our dataset, we used the RealSense image timestamps as the reference, and take the measurements with the closest timestamp from the LiDAR and the poses. The provided odometry and IMU data is not sub-sampled. Please contact us if you need the unprocessed, raw data (as rosbags). 
 
@@ -207,7 +210,7 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 
 ![trajs](/Figures/trajs.png)
 
-## Real-World Warehouse Scenario
+## TorWIC-SLAM Scenarios
 
 | Scenario       |  Number of Trajectories |   Total Number of Frames | Description     | Date     |
 |:----          | :----:                   |   :----:                 |          :----: |          :----:|
@@ -240,6 +243,11 @@ The dataset provides 18 trajectories in 4 scenarios, including the baseline setu
 | [Long Loop Reverse 1-1](https://drive.google.com/file/d/1Zu572hGdt4dCeNdr4kHNmn3RFMruEGil/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
 | [Long Hallway 1-0](https://drive.google.com/file/d/1XpdznkqMSr41TvqLodPUldbsUzhi-vn1/view?usp=sharing) | 1                     |X                    | Traversing the long hallway alone | June 15, 2022  |
 | [Long Hallway 1-1](https://drive.google.com/file/d/1xjDCM-_x1PUTeu-qXjkwP9-Qlo3yOzX2/view?usp=sharing) | 1                     |X                    | NEEDS TO BE MERGED WITH ABOVE | June 15, 2022  |
+
+
+## TorWIC-SLAM FAQ
+Q) Is the sensor data synchronized? \
+A) The sensors on the OTTO 100 platform are not synchronized with each other. For our dataset, we used the RealSense image timestamps as the reference, and take the measurements with the closest timestamp from the LiDAR and the poses. The provided odometry and IMU data is not sub-sampled. Please contact us if you need the unprocessed, raw data (as rosbags). 
 
 
 ## POV-SLAM Citing
