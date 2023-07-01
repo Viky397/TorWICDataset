@@ -2,7 +2,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [The Toronto Warehouse Incremental Change Mapping Dataset (TorWIC)](#The-Toronto-Warehouse-Incremental-Change-Mapping-Dataset-(TorWIC))
+   * [The Toronto Warehouse Incremental Change (TorWIC) Mapping Dataset](#The-Toronto-Warehouse-Incremental-Change-(TorWIC)-Mapping-Dataset)
       * [TorWIC Description](#TorWIC-Mapping-Description)
       * [Download TorWIC dataset](#Download-TorWIC-dataset)
       * [Data directory structure](#Data-directory-structure)
