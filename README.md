@@ -207,7 +207,7 @@ Each scenario configuration follows the same folder structure, as seen below. Pl
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from two Azure Kinect RGB-D cameras and a Ouster OS1-128 3D LiDAR, all rigidly mounted on the top the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
 ![SLAM Otto Robot](/Figures/slam_sensor_frames.png)
-![Table of sensors](/Figures/sensor_table.png)
+![Table of sensors](/Figures/slam_sensors_overview.png)
 
 We further provide centimeter-accurate 3D scan of the warehouse and robot poses. The image below shows a top view of the map.
 
