@@ -6,7 +6,7 @@ Table of contents
       * [TorWIC-Mapping Description](#TorWIC-Mapping-Description)
       * [Download TorWIC-Mapping dataset](#Download-TorWIC-Mapping-Dataset)
       * [TorWIC-Mapping Data Directory Structure](#TorWIC-Mapping-Data-Directory-Structure)
-      * [TorWIC Robot and Sensors](#TorWIC-Robot-and-sensors)
+      * [TorWIC-Mapping Robot and Sensors](#TorWIC-Mapping-Robot-and-sensors)
       * [How to Merge Trajectories into ROS Bags](#How-to-Merge-Trajectories-into-ROS-Bags)
       * [Dataset FAQ](#Dataset-FAQ)
       * [POCD Citing](#POCD-Citing)
@@ -32,7 +32,7 @@ In the image below is an example of two frames captures by the robot at the Apri
 ## Download TorWIC-Mapping Dataset
 The novel dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 18 trajectories that can be merged using the provided script to create a changing environment.
 
-## Data Directory Structure
+## TorWIC-Mapping Data Directory Structure
 The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/TorWICDataset/blob/main/TorWIC_Dataset.pdf).
 
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
@@ -78,7 +78,7 @@ WarehouseSequences
 |---- X: Configuration Change
 ```
 
-## TorWIC Robot and Sensors
+## TorWIC-Mapping Robot and Sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
 
 ![Otto Robot](/Figures/otto.png)
@@ -140,7 +140,7 @@ This repository contains the released dataset discussed in **POV-SLAM: Probabili
 ## Download TorWIC-SLAM Dataset
 The real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 20 trajectories. Since the robot all starts close to the same position and orientation (origin of the ground-turth map), users can merge them to create a changing environment.
 
-## Data Directory Structure
+## TorWIC-SLAM Data Directory Structure
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
 
 ```
