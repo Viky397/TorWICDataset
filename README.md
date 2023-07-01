@@ -135,22 +135,46 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
 # The Toronto Warehouse Incremental Change SLAM Dataset
 
 ## TorWIC-SLAM Description
-This repository contains the released dataset discussed in **POV-SLAM: Probabilistic Object-Level Variational SLAM**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM_SuppMaterial.pdf). The purpose of this dataset is to evaluate the SLAM capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility.
+This repository contains the released dataset discussed in **POV-SLAM: Probabilistic Object-Level Variational SLAM**, [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POV_SLAM_SuppMaterial.pdf). The purpose of this dataset is to evaluate the SLAM capabilities in a warehouse environment undergoing incremental changes. This dataset is collected in a [Clearpath Robotics](https://clearpathrobotics.com/) facility on three data collections days over a four months span.
 
 ## Download TorWIC-SLAM Dataset
-The novel real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 10 trajectories that can be merged using the provided script to create a changing environment.
+The novel real-world dataset taken in the Clearpath Robotics warehouse is located [here](https://drive.google.com/drive/folders/12-h2OPmlmxLk0Y9C3Hr5glkalUp66oEJ?usp=sharing). This dataset contains 20 trajectories. Since the robot all starts close to the same position and orientation (origin of the ground-turth map), users can merge them to create a changing environment.
 
 ## Data Directory Structure
-The configuration changes can be seen in the following ![layout description document](https://github.com/Viky397/TorWICDataset/blob/main/TorWIC_Dataset.pdf).
-
 Each scenario configuration follows the same folder structure, as seen below. Please see the next section on further details regarding each sensor. 
 
 ```
 WarehouseSequences
 |
-|----Baseline configuration
+|----Scenario 1 Traversal 1
 |       +--- rgb                      # 0000.png - xxxx.png      
-
+|       +--- depth                    # 0000.png - xxxx.png
+|       +--- segmentation             # 0000.png - xxxx.png    
+|       +--- laser scans              # 0000.pcd - xxxx.pcd 
+|       --- poses.txt 
+|       --- imu.txt 
+|       --- odom.txt
+|
+|
+|-------Scenario 1 Traversal 2
+|       +--- rgb                      # 0000.png - xxxx.png      
+|       +--- depth                    # 0000.png - xxxx.png
+|       +--- segmentation             # 0000.png - xxxx.png   
+|       +--- laser scans              # 0000.pcd - xxxx.pcd
+|       --- poses.txt 
+|       --- imu.txt 
+|       --- odom.txt
+|
+|
+|
+|-------Scenario X Traversal Y
+|       +--- rgb                      # 0000.png - xxxx.png      
+|       +--- depth                    # 0000.png - xxxx.png
+|       +--- segmentation             # 0000.png - xxxx.png  
+|       +--- laser scans              # 0000.pcd - xxxx.pcd
+|       --- poses.txt 
+|       --- imu.txt 
+|       --- odom.txt
 ```
 ## TorWIC-SLAM Robot and Sensors
 The dataset was collected on the [OTTO 100 Autonomous Mobile Robot](https://ottomotors.com/100\#stats), remote controlled by a human operator at walking speed. We record sensor measurements from an Intel RealSense D435i RGB-D camera, a wheel encoder, an IMU unit, and a Hokuyo UAM501 2D laser scanner, all rigidly mounted on the platform. The following figure shows the robot platform and the sensor frames, and the following table lists the specifications and formats of the sensor measurements.
