@@ -132,7 +132,7 @@ Jingxing Qian, Veronica Chatrath, Jun Yang, James Servos, Angela Schoellig, and 
   volume={},
   number={},
   pages={},
-  doi={}}
+  doi={10.15607/RSS.2022.XVIII.013}}
 ```
 
 # The Toronto Warehouse Incremental Change SLAM Dataset
