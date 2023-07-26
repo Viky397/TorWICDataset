@@ -248,7 +248,7 @@ A) The depth images from the Azure Kinect cameras are scaled by a factor of 1000
 
 When using **POV-SLAM** or the dataset in your research, please cite the following publication:
 
-Jingxing Qian, Veronica Chatrath, James Servos, Aaron Mavrinac, Wolfram Burgard, Steven L. Waslander, and Angela Schoellig, **POV-SLAM: Probabilistic Object-Level Variational SLAM**, _2023 Robotics: Science and Systems (RSS)_, 2023. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POVSLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_Chatrath_POVSLAM_SuppMaterial.pdf) 
+Jingxing Qian, Veronica Chatrath, James Servos, Aaron Mavrinac, Wolfram Burgard, Steven L. Waslander, and Angela Schoellig, **POV-SLAM: Probabilistic Object-Level Variational SLAM**, _2023 Robotics: Science and Systems (RSS)_, 2023. [[Paper]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_POV_SLAM.pdf), [[Supplementary Material]](https://github.com/Viky397/TorWICDataset/blob/main/Qian_POV_SLAM_SuppMaterial.pdf) 
 
 ```bibtex
 @INPROCEEDINGS{QianChatrathPOVSLAM,
